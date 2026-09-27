@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Öğrenme Patikaları — AI-GALAXY</title>
+  <meta name="description" content="Kademeli AI okuryazarlığı patikaları: adım adım öğren, üreterek seviye atla.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f5bf9'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="app-page">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5.5L19.5 10 14 12l-2 5.5L10 12 4.5 10 10 8.5 12 3z"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="7" y1="3" x2="7" y2="21"/><line x1="17" y1="3" x2="17" y2="21"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></symbol>
+</svg>
+
+<header class="appbar" id="appbar" data-active="patikalar"></header>
+
+<section class="app-hero">
+  <div class="wrap">
+    <span class="kicker">Uygulamalı AI okuryazarlığı</span>
+    <h1>Adım adım öğren.<br><em>Üreterek seviye atla.</em></h1>
+    <div class="pf-row">
+      <div class="lvl-filter" id="lvlFilter">
+        <button class="lvl on" data-lvl="hepsi">Tümü</button>
+        <button class="lvl" data-lvl="Başlangıç">Başlangıç</button>
+        <button class="lvl" data-lvl="Orta">Orta</button>
+        <button class="lvl" data-lvl="İleri">İleri</button>
+      </div>
+      <div class="psearch" id="pSearch">
+        <button type="button" id="pSearchBtn" aria-label="Patika ara"><svg class="ic"><use href="#i-search"/></svg></button>
+        <input id="pSearchIn" type="search" placeholder="Patika veya konu ara…" aria-label="Patika ara">
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="app-sec">
+  <div class="wrap">
+    <div class="patika-grid" id="patikaGrid"></div>
+
+    <div class="app-note">
+      <div>
+        <b>Her seviye somut bir ürünle tamamlanır.</b>
+        <p>Final ürün, üretim günlüğü, seçilmiş promptlar ve öz değerlendirme portfolyona eklenir. Bir sonraki seviyeye geçmek için çıktını açıklar, geri bildirimle revize eder ve üretim kararlarını gerekçelendirirsin.</p>
+      </div>
+      <a class="btn-ghost" href="index.html#editor">Üretim araçlarını keşfet →</a>
+    </div>
+  </div>
+</main>
+
+<script src="js/programs.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/appbar.js"></script>
+<script src="js/patikalar.js"></script>
+</body>
+</html>

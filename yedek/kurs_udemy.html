@@ -34,16 +34,13 @@
   <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
-  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></symbol>
-  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
   <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5.5L19.5 10 14 12l-2 5.5L10 12 4.5 10 10 8.5 12 3z"/></symbol>
 </svg>
 
 <!-- ============ ÜST ÇUBUK ============ -->
 <header class="ktop">
-  <a class="ktop-back" href="index.html#yolculuk">←</a>
+  <a class="ktop-back" href="index.html#program">←</a>
   <div class="ktop-title">
     <span class="kt-brand">AI-GALAXY</span>
     <h1 id="courseTitle">Kurs</h1>
@@ -52,7 +49,7 @@
     <div class="ktp-bar"><i id="progressBar"></i></div>
     <span id="progressText">%0 tamamlandı</span>
   </div>
-  <button class="ktop-toggle" id="sideToggle" aria-label="Öğrenme yolculuğunu aç/kapat"><svg class="ic"><use href="#i-menu"/></svg> Öğrenme Yolculuğu</button>
+  <button class="ktop-toggle" id="sideToggle" aria-label="Müfredatı aç/kapat">☰ Müfredat</button>
 </header>
 
 <div class="klayout" id="klayout">
@@ -90,15 +87,14 @@
   </main>
 
   <!-- ============ SAĞ MENÜ: MÜFREDAT ============ -->
-  <div class="kside-shade" id="ksideShade" hidden></div>
   <aside class="kside" id="kside">
     <div class="kside-head">
-      <h3>Öğrenme Yolculuğu</h3>
+      <h3>Kurs içeriği</h3>
       <button class="kside-close" id="sideClose" aria-label="Müfredatı kapat">✕</button>
     </div>
     <div class="kside-scroll" id="curriculum"></div>
     <div class="kside-foot">
-      <a href="index.html#yolculuk">← Tüm patikalar</a>
+      <a href="index.html#program">← Tüm patikalar</a>
     </div>
   </aside>
 
@@ -115,19 +111,7 @@
     <span class="sov-pill" id="sovPill">Şifre Avı</span>
     <span class="sov-points"><svg class="ic"><use href="#i-star"/></svg> 5 puan</span>
     <span class="sov-count" id="sovCount">Patika 0 / 16</span>
-    <button class="sov-journey-btn" id="sovJourneyBtn" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg> Öğrenme Yolculuğu</button>
   </header>
-
-  <!-- Öğrenme Yolculuğu çekmecesi: adımlar arasında geçiş -->
-  <div class="sj-shade" id="sjShade" hidden></div>
-  <aside class="sov-journey" id="sovJourney" aria-label="Öğrenme Yolculuğu">
-    <div class="sj-head">
-      <div><span>Öğrenme Yolculuğu</span><b id="sjTitle">Patika</b></div>
-      <button class="sj-x" id="sjClose" aria-label="Kapat"><svg class="ic"><use href="#i-x"/></svg></button>
-    </div>
-    <div class="sj-prog"><i id="sjBar"></i></div>
-    <div class="sj-list" id="sjList"></div>
-  </aside>
 
   <div class="sov-body">
     <aside class="sov-rail">
@@ -170,46 +154,21 @@
   <button class="sov-question" id="sovQuestion"><svg class="ic"><use href="#i-message"/></svg> Soruyu Gör</button>
 
   <!-- Soru penceresi -->
-  <!-- Tutorial penceresi (Soru / İpucu) -->
-  <section class="tut" id="sovQWrap" aria-label="Görev penceresi">
-    <div class="tut-top">
-      <svg class="ic tut-ico"><use href="#i-message"/></svg>
-      <button class="tut-tab on" data-tab="soru">Soru</button>
-      <button class="tut-tab" data-tab="ipucu">İpucu</button>
-      <span class="tut-speed" id="tutSpeed">
-        <button class="on" data-r="1">1x</button><button data-r="1.5">1.5x</button><button data-r="2">2x</button>
-      </span>
-      <button class="tut-x" id="sovQClose" aria-label="Pencereyi küçült"><svg class="ic"><use href="#i-x"/></svg></button>
-    </div>
-    <div class="tut-card">
-      <div class="tut-title">
-        <span class="tut-num" id="sqNum">1</span>
-        <b id="sqTitle">Görev</b>
-        <span id="sqSub">AI-Galaxy · Ders 1</span>
+  <div class="sov-qwrap" id="sovQWrap" hidden>
+    <div class="sov-qcard">
+      <div class="sq-top">
+        <span class="sq-pill on">Soru</span><span class="sq-pill">İpucu</span>
+        <button class="sq-x" id="sovQClose"><svg class="ic"><use href="#i-x"/></svg></button>
       </div>
-      <div class="tut-line"><i id="tutLine"></i></div>
-      <div class="tut-pane" id="tutSoru">
-        <figure class="tut-media" id="tutMedia"></figure>
-        <p class="tut-cap" id="tutCap"></p>
-      </div>
-      <div class="tut-pane" id="tutIpucu" hidden>
-        <p class="tut-hint" id="sqText"></p>
-        <p class="tut-out">Hedef çıktı: <b id="sqOut"></b></p>
-        <p class="tut-flaghint">Şifre bu dersin rehberinde geçiyor — son slayta dikkatle bak.</p>
-      </div>
-      <div class="tut-nav">
-        <button class="tut-prev" id="tutPrev">← Geri</button>
-        <span id="tutPage">1 / 4</span>
-        <button class="tut-next" id="tutNext">İleri →</button>
+      <div class="sq-body">
+        <div class="sq-title"><span class="sq-num" id="sqNum">1</span><div><h4 id="sqTitle">Görev</h4><span id="sqSub">AI-Galaxy</span></div></div>
+        <p class="sq-text" id="sqText"></p>
+        <div class="sq-out"><svg class="ic"><use href="#i-crosshair"/></svg> Hedef çıktı: <b id="sqOut"></b></div>
+        <div class="sq-hint">İpucu: promptunda amaç + bağlam + stil + kısıt kullan; üretince "AI ile üretildi" etiketini unutma.</div>
+        <button class="sq-done" id="sovDone">✓ Görevi tamamla ve patikaya dön</button>
       </div>
     </div>
-    <form class="tut-flag" id="tutFlag" autocomplete="off">
-      <svg class="ic"><use href="#i-key"/></svg>
-      <input id="tutFlagIn" placeholder="Şifreyi yaz" aria-label="Şifre">
-      <button type="submit">Gönder →</button>
-    </form>
-    <p class="tut-msg" id="tutMsg" aria-live="polite"></p>
-  </section>
+  </div>
 </div>
 
 <script src="js/programs.js"></script>

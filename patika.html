@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Öğrenme Patikası — AI-GALAXY</title>
+  <meta name="description" content="AI-GALAXY öğrenme patikası: adım adım ilerle, üreterek seviye atla.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f5bf9'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/patika.css">
+</head>
+<body class="patika-page app-page">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5.5L19.5 10 14 12l-2 5.5L10 12 4.5 10 10 8.5 12 3z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+</svg>
+
+<header class="appbar" id="appbar" data-active="patikalar"></header>
+
+<section class="pt-head">
+  <div class="wrap">
+    <a class="pt-back" href="patikalar.html"><svg class="ic"><use href="#i-arrow-left"/></svg> Öğrenme Patikaları</a>
+    <span class="kicker">AI öğrenme patikası</span>
+    <div class="pt-title-row">
+      <h1 id="ptTitle">Patika</h1>
+      <div class="pt-meta">
+        <span class="pc-tag" id="ptSteps">17 adım</span>
+        <span class="pc-tag gold" id="ptPoints">500 puan</span>
+        <span class="pc-tag" id="ptDone">0/16 tamamlandı</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap pt-layout">
+  <div class="pt-map" id="ptMap"></div>
+
+  <aside class="pt-side">
+    <div class="pt-side-in">
+      <div class="pt-ring">
+        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="r-bg"/><circle cx="60" cy="60" r="52" class="r-fg" id="ptRing"/></svg>
+        <span id="ptPct">%0</span>
+      </div>
+      <div class="pt-stat"><b id="ptStatSteps">0 / 16</b><span>adım</span></div>
+      <div class="pt-stat"><b id="ptStatPuan">0 / 85</b><span>puan</span></div>
+      <a class="btn-primary pt-next" id="ptNext" href="#" style="justify-content:center">Sıradaki adım →</a>
+      <p class="pt-final" id="ptFinal"></p>
+    </div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span class="brand"><span class="brand-mark">✦</span> AI-GALAXY</span>
+    <nav class="foot-links">
+      <a href="index.html#yolculuk">Öğrenme Yolculuğu</a>
+      <a href="index.html#editor">AI-Stüdyo</a>
+      <a href="index.html#galeri">Şablonlar</a>
+      <a href="kids/index.html">Kids</a>
+    </nav>
+    <span class="foot-copy">© 2026 AI-GALAXY · tasarım demosu</span>
+  </div>
+</footer>
+
+<div class="login-wrap" id="loginWrap" hidden>
+  <div class="login-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <button class="login-x" id="loginX" aria-label="Kapat">✕</button>
+    <span class="login-brand">✦ AI-GALAXY</span>
+    <h3 id="loginTitle">Ücretsiz giriş</h3>
+    <p>Demo hesabıyla üye görünümünü dener, patikalarda ilerlemeni kaydedersin.</p>
+    <label class="login-f">E-posta<input type="email" id="loginMail" value="selin@ornek.com"></label>
+    <label class="login-f">Şifre<input type="password" id="loginPass" value="demo1234"></label>
+    <button class="btn-primary login-go" id="loginGo" style="justify-content:center;width:100%">Giriş yap</button>
+    <span class="login-note">Bu bir tasarım demosudur; bilgiler yalnızca tarayıcında saklanır.</span>
+  </div>
+</div>
+
+<script src="js/programs.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/patika.js"></script>
+<script src="js/appbar.js"></script>
+</body>
+</html>

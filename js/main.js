@@ -36,8 +36,14 @@
       });
     }, { threshold: 0.12 });
     revealEls.forEach(function (el) { ro.observe(el); });
+    window.AIG_REVEAL = function () {
+      document.querySelectorAll(".reveal:not(.in)").forEach(function (el) { ro.observe(el); });
+    };
   } else {
     revealEls.forEach(function (el) { el.classList.add("in"); });
+    window.AIG_REVEAL = function () {
+      document.querySelectorAll(".reveal:not(.in)").forEach(function (el) { el.classList.add("in"); });
+    };
   }
 
   // Videolar: görünürken oynat, görünmeyince durdur (performans)
@@ -71,7 +77,88 @@
   // ---------- Program: patikalar ve haftalık içerik ----------
   var PROGRAMS = window.AIG_PROGRAMS || [];
 
+  var PATIKA_META = [
+    { ico: "i-sparkle", thumb: "media/poster_sty_vangogh.jpg", puan: 100 },
+    { ico: "i-layers", thumb: "media/poster_out_okyanus.jpg", puan: 100 },
+    { ico: "i-film", thumb: "media/poster_tpl_kurum.jpg", puan: 100 },
+    { ico: "i-zap", thumb: "media/pos_bina3d.jpg", puan: 100 }
+  ];
+
+  function kursState() {
+    try { return JSON.parse(localStorage.getItem("aig_kurs") || "null") || {}; } catch (e) { return {}; }
+  }
+  function doneCount(st, i) {
+    return ((st.progs && st.progs[i] && st.progs[i].done) || []).length;
+  }
+
+  function renderPatikalar() {
+    var grid = document.getElementById("patikaGrid");
+    if (!grid || !PROGRAMS.length) return;
+    var st = kursState();
+    var member = !!(window.AIG_AUTH && window.AIG_AUTH.user());
+    grid.innerHTML = "";
+    PROGRAMS.forEach(function (prg, i) {
+      var meta = PATIKA_META[i] || PATIKA_META[0];
+      var done = doneCount(st, i);
+      var pct = Math.round(done / 16 * 100);
+      var a = document.createElement("a");
+      a.className = "pcard reveal";
+      a.dataset.lvl = prg.level;
+      a.href = "patika.html?p=" + i;
+      a.innerHTML =
+        '<span class="pc-bg" style="background-image:url(' + meta.thumb + ')"></span>' +
+        '<span class="pc-head">' +
+          '<span class="pc-ring"><svg class="ic"><use href="#' + meta.ico + '"/></svg></span>' +
+          '<span class="pc-lvlno">SEVİYE 0' + (i + 1) + '</span>' +
+        "</span>" +
+        "<h3></h3>" +
+        '<span class="pc-tags"><span class="pc-tag">' + prg.level + '</span>' +
+          '<span class="pc-tag">17 adım</span><span class="pc-tag gold">' + meta.puan + ' puan</span></span>' +
+        '<span class="pc-prog"><span class="pc-prog-top">İlerleme<b>' + done + "/16 adım · %" + pct + "</b></span>" +
+          '<span class="pc-bar"><i style="width:' + Math.max(pct, 2) + '%"></i></span></span>' +
+        '<span class="pc-go">' + (done ? "Patikaya devam et" : "Patikaya başla") + " →</span>";
+      a.querySelector("h3").textContent = prg.title;
+      if (!member) a.classList.add("pc-guest");
+      grid.appendChild(a);
+    });
+    if (window.AIG_REVEAL) window.AIG_REVEAL();
+  }
+
+  renderPatikalar();
+  document.addEventListener("aig:login", renderPatikalar);
+  document.addEventListener("aig:logout", renderPatikalar);
+
+  // seviye filtresi + açılır arama
+  var lvlSel = "hepsi", query = "";
+  function applyFilter() {
+    var q = query.toLocaleLowerCase("tr").trim();
+    document.querySelectorAll("#patikaGrid .pcard").forEach(function (c, i) {
+      var prg = PROGRAMS[i];
+      var hay = (prg.title + " " + prg.level + " " + prg.weeks.map(function (w) { return w.t; }).join(" ")).toLocaleLowerCase("tr");
+      c.hidden = !((lvlSel === "hepsi" || c.dataset.lvl === lvlSel) && (!q || hay.indexOf(q) !== -1));
+    });
+  }
+  var lvlWrap = document.getElementById("lvlFilter");
+  if (lvlWrap) lvlWrap.addEventListener("click", function (e) {
+    var b = e.target.closest(".lvl");
+    if (!b) return;
+    lvlWrap.querySelectorAll(".lvl").forEach(function (x) { x.classList.remove("on"); });
+    b.classList.add("on");
+    lvlSel = b.dataset.lvl;
+    applyFilter();
+  });
+  var sBox = document.getElementById("pSearch"), sBtn = document.getElementById("pSearchBtn"), sIn = document.getElementById("pSearchIn");
+  if (sBox) {
+    sBtn.addEventListener("click", function () {
+      var open = !sBox.classList.contains("open");
+      sBox.classList.toggle("open", open);
+      if (open) sIn.focus(); else { sIn.value = ""; query = ""; applyFilter(); }
+    });
+    sIn.addEventListener("input", function () { query = sIn.value; applyFilter(); });
+  }
+
   if (PROGRAMS.length) {
+
     // Kaldığı yerden devam çubuğu
     try {
       var saved = JSON.parse(localStorage.getItem("aig_kurs") || "null");

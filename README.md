@@ -11,6 +11,17 @@ RAPOR.md'deki eleştiriler doğrultusunda hazırlanan tasarım demosu.
 - `media/` — C:\ae_projects\assets içinden seçilip optimize edilmiş gerçek AI-GALAXY üretimleri (ffmpeg ile 720p / jpg poster). İnsan/atmosfer fotoğrafları Unsplash CDN'den gelir (internet gerektirir).
 - `onizleme/` — Playwright ile alınan doğrulama ekran görüntüleri (masaüstü + mobil).
 
+## Üye (giriş yapılmış) uygulama görünümü — ai-galaxy.app yapısından örneklendi
+
+- **Ücretsiz Giriş** (anasayfa) → demo giriş penceresi (hazır `selin@ornek.com`) → `patikalar.html`. Üyelik yalnızca tarayıcıda `aig_user` anahtarında tutulur; profil menüsünden Çıkış.
+- Ortak üst bar (`js/appbar.js`): Öğrenme Patikaları · Galaxy · Templates · 1.000 Kredi · Profil menüsü.
+- `patikalar.html` — patika kartları, seviye filtresi ve açılıp kapanan arama.
+- `patika.html?p=N` — kıvrımlı adım haritası; düğüm üzerine gelince adım kartı (numara, başlık, tür, puan, "Başla +5 puan"), tıklayınca doğrudan adıma girer. Sağda ilerleme halkası ve "Sıradaki adım".
+- Adım ekranı `kurs.html?...&studio=1` — AI-GALAXY editörü: üstte görev başlığı + ilerleme çubuğu + **Öğrenme Yolculuğu** düğmesi (adımlar arasında geçiş yapılan açılır/kapanır çekmece), sağ altta tutorial penceresi (Soru / İpucu, 1x–2x hız, slaytlar, şifre + Gönder). Doğru şifre adımı tamamlar, +5 puan verir ve sıradaki adıma geçer. Demo şifreleri son slaytta yazar.
+- `galaxy.html` — sade editör (tutorial yok): Keşfet akışı ve üretim, Koleksiyon, Metin/Görsel/Ses/Video sohbet ekranları.
+- `sablonlar.html` — Templates: arama, Şablonlar/Koleksiyonum, kategori filtreleri, üzerine gelince oynayan şablon kartları, detay penceresi.
+- Eski Udemy tarzı kurs ekranı `yedek/` klasöründe saklı (geri dönüş için `yedek/OKU.md`).
+
 ## Çalıştırma
 
 Video ve fontların düzgün yüklenmesi için bir statik sunucuyla açın:

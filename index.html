@@ -22,6 +22,15 @@
   <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
   <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5.5L19.5 10 14 12l-2 5.5L10 12 4.5 10 10 8.5 12 3z"/></symbol>
   <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="7" y1="3" x2="7" y2="21"/><line x1="17" y1="3" x2="17" y2="21"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
   <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
 </svg>
 
@@ -33,13 +42,20 @@
     </a>
     <div class="nav-right">
       <nav class="nav-links-wrap" id="navLinks">
-        <a class="nav-link" href="#program">Öğrenme Yolculuğu</a>
+        <a class="nav-link" href="#yolculuk">Öğrenme Yolculuğu</a>
         <a class="nav-link" href="#editor">AI-Stüdyo</a>
         <a class="nav-link" href="#galeri">Şablonlar</a>
         <a class="nav-link" href="#fiyat">Paketler</a>
         <!-- Kids: Paketler'in hemen sağında -->
         <a class="nav-link kids-link" href="kids/index.html">Kids</a>
-        <a class="nav-cta" href="#fiyat">Ücretsiz Giriş</a>
+        <a class="nav-cta" id="authBtn" href="#fiyat">Ücretsiz Giriş</a>
+        <a class="nav-cta" id="appGo" href="patikalar.html" hidden>Uygulamaya git →</a>
+        <span class="user-chip" id="userChip" hidden>
+          <span class="uc-credit"><svg class="ic"><use href="#i-zap"/></svg> 1.000 kredi</span>
+          <span class="uc-ava" id="ucAva">S</span>
+          <span class="uc-name" id="ucName">Selin</span>
+          <button class="uc-out" id="logoutBtn" title="Çıkış">Çıkış</button>
+        </span>
       </nav>
       <button class="nav-burger" id="burger" aria-label="Menü">☰</button>
     </div>
@@ -71,7 +87,7 @@
       <h1>İzleme.<br>Üret.</h1>
       <p class="lead">AI'ı herkes kullanıyor — sen ustalaş. Gerçek stüdyoda, yaparak.</p>
       <div class="cta-row">
-        <a class="btn-primary" href="#program">Programı Keşfet →</a>
+        <a class="btn-primary" href="#yolculuk">Programı Keşfet →</a>
         <a class="btn-ghost" href="#galeri">Üretimleri Gör</a>
       </div>
     </div>
@@ -105,33 +121,26 @@
 </section>
 
 <!-- ============ PROGRAM: patikalar + haftalık içerik ============ -->
-<section id="program">
+<section id="yolculuk">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="kicker">Eğitim programı</span>
-      <h2>Dört patika. <em>Fikirden ürüne.</em></h2>
-      <p>Her patika 8 hafta / 16 saattir ve gerçek bir final projesiyle biter. Patikaya tıkla, derslere başla.</p>
+      <span class="kicker">Uygulamalı AI okuryazarlığı</span>
+      <h2>Adım adım öğren. <em>Üreterek seviye atla.</em></h2>
+      <div class="pf-row">
+        <div class="lvl-filter" id="lvlFilter">
+          <button class="lvl on" data-lvl="hepsi">Tümü</button>
+          <button class="lvl" data-lvl="Başlangıç">Başlangıç</button>
+          <button class="lvl" data-lvl="Orta">Orta</button>
+          <button class="lvl" data-lvl="İleri">İleri</button>
+        </div>
+        <div class="psearch" id="pSearch">
+          <button type="button" id="pSearchBtn" aria-label="Patika ara"><svg class="ic"><use href="#i-search"/></svg></button>
+          <input id="pSearchIn" type="search" placeholder="Patika veya konu ara…" aria-label="Patika ara">
+        </div>
+      </div>
     </div>
 
-    <div class="prog-tabs reveal" id="progTabs">
-      <a class="prog-tab" href="kurs.html?p=0&w=1">
-        <span class="pt-thumb"><img src="media/poster_sty_vangogh.jpg" alt=""></span>
-        <span class="pt-body"><span class="pt-num">01</span><h3>Temel AI Creator</h3><span class="pt-level">Başlangıç</span></span>
-      </a>
-      <a class="prog-tab" href="kurs.html?p=1&w=1">
-        <span class="pt-thumb"><img src="media/poster_out_okyanus.jpg" alt=""></span>
-        <span class="pt-body"><span class="pt-num">02</span><h3>Orta AI Creator</h3><span class="pt-level">Orta</span></span>
-      </a>
-      <a class="prog-tab" href="kurs.html?p=2&w=1">
-        <span class="pt-thumb"><img src="media/poster_tpl_kurum.jpg" alt=""></span>
-        <span class="pt-body"><span class="pt-num">03</span><h3>İleri AI Filmmaker</h3><span class="pt-level">İleri</span></span>
-      </a>
-      <a class="prog-tab" href="kurs.html?p=3&w=1">
-        <span class="pt-thumb"><img src="media/pos_bina3d.jpg" alt=""></span>
-        <span class="pt-body"><span class="pt-num">04</span><h3>İleri AI Coder</h3><span class="pt-level">İleri</span></span>
-      </a>
-    </div>
-
+    <div class="patika-grid reveal" id="patikaGrid"></div>
     <div class="resume-row" id="resumeRow"></div>
   </div>
 </section>
@@ -151,7 +160,7 @@
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
         <span class="browser-url">ai-galaxy.app/studio</span>
       </div>
-      <img src="media/ai_galaxy_clean_image.png" alt="AI-GALAXY ders görevi ekranı">
+      <img src="media/ai_galaxy_clean_image.jpg" alt="AI-GALAXY editörü: keşfet akışı ve prompt alanı">
     </div>
   </div>
 </section>
@@ -320,7 +329,7 @@
   <div class="wrap foot-grid">
     <a class="brand" href="index.html"><span class="brand-mark">✦</span> AI-GALAXY</a>
     <nav class="foot-links">
-      <a href="#program">Öğrenme Yolculuğu</a>
+      <a href="#yolculuk">Öğrenme Yolculuğu</a>
       <a href="#editor">AI-Stüdyo</a>
       <a href="#galeri">Şablonlar</a>
       <a href="#fiyat">Paketler</a>
@@ -334,6 +343,21 @@
 </footer>
 
 <script src="js/programs.js"></script>
+<script src="js/auth.js"></script>
 <script src="js/main.js"></script>
+
+<!-- Demo giriş penceresi -->
+<div class="login-wrap" id="loginWrap" hidden>
+  <div class="login-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <button class="login-x" id="loginX" aria-label="Kapat"><svg class="ic"><use href="#i-x"/></svg></button>
+    <span class="login-brand">✦ AI-GALAXY</span>
+    <h3 id="loginTitle">Ücretsiz giriş</h3>
+    <p>Demo hesabıyla üye görünümünü dener, patikalarda ilerlemeni kaydedersin.</p>
+    <label class="login-f">E-posta<input type="email" id="loginMail" value="selin@ornek.com"></label>
+    <label class="login-f">Şifre<input type="password" id="loginPass" value="demo1234"></label>
+    <button class="btn-primary login-go" id="loginGo" style="justify-content:center;width:100%">Giriş yap</button>
+    <span class="login-note">Bu bir tasarım demosudur; bilgiler yalnızca tarayıcında saklanır.</span>
+  </div>
+</div>
 </body>
 </html>

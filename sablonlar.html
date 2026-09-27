@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Şablonlar — AI-GALAXY</title>
+  <meta name="description" content="Hazır AI şablonlarının alanlarını doldur, saniyeler içinde içerik üret.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f5bf9'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/sablonlar.css">
+</head>
+<body class="app-page">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></symbol>
+</svg>
+
+<header class="appbar" id="appbar" data-active="sablonlar"></header>
+
+<section class="app-hero">
+  <div class="wrap">
+    <span class="kicker">Discover</span>
+    <h1>Şablonlarla <em>üret,</em><br>keşfet, paylaş.</h1>
+    <p>Hazır AI şablonlarının alanlarını doldur ve saniyeler içinde içerik üret.</p>
+    <label class="tp-search"><svg class="ic"><use href="#i-search"/></svg><input id="tpSearch" type="search" placeholder="Şablon ara…"></label>
+    <div class="tp-seg"><button class="on" data-s="all">▦ Şablonlar</button><button data-s="mine">◈ Koleksiyonum</button></div>
+  </div>
+</section>
+
+<main class="app-sec">
+  <div class="wrap">
+    <div class="tp-cats" id="tpCats"></div>
+    <div class="tp-grid" id="tpGrid"></div>
+  </div>
+</main>
+
+<!-- şablon detayı -->
+<div class="tp-modal" id="tpModal" hidden>
+  <div class="tp-dialog" role="dialog" aria-modal="true" aria-labelledby="tpmTitle">
+    <button class="tp-x" id="tpX" aria-label="Kapat"><svg class="ic"><use href="#i-x"/></svg></button>
+    <div class="tp-dmedia" id="tpmMedia"></div>
+    <div class="tp-dbody">
+      <span class="tp-badge">STANDART</span>
+      <h3 id="tpmTitle">Şablon</h3>
+      <p id="tpmDesc"></p>
+      <label class="tp-field"><span>Fotoğrafını yükle</span>
+        <span class="tp-drop"><svg class="ic"><use href="#i-upload"/></svg> Sürükle bırak ya da seç (demo)</span></label>
+      <label class="tp-field"><span>Kısa açıklama</span><input placeholder="Örn. kendi markam için, sıcak renkler"></label>
+      <button class="btn-primary tp-go" id="tpGo" style="justify-content:center;width:100%">Üret · <b id="tpmCost">150</b> kredi</button>
+      <p class="tp-msg" id="tpMsg"></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/appbar.js"></script>
+<script src="js/sablonlar.js"></script>
+</body>
+</html>

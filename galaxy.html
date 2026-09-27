@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galaxy — AI-GALAXY</title>
+  <meta name="description" content="AI-GALAXY editörü: metin, görsel, ses ve video üret.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f5bf9'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/galaxy.css">
+</head>
+<body class="app-page galaxy-page">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></symbol>
+  <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5.5L19.5 10 14 12l-2 5.5L10 12 4.5 10 10 8.5 12 3z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+</svg>
+
+<header class="appbar" id="appbar" data-active="galaxy"></header>
+
+<div class="gx">
+  <aside class="gx-rail">
+    <span class="gx-logo">✦</span>
+    <button class="gx-r on" data-view="kesfet"><svg class="ic"><use href="#i-compass"/></svg><span>Keşfet</span></button>
+    <button class="gx-r" data-view="koleksiyon"><svg class="ic"><use href="#i-layers"/></svg><span>Koleksiyon</span></button>
+    <i class="gx-sep"></i>
+    <button class="gx-r" data-view="metin"><svg class="ic"><use href="#i-message"/></svg><span>Metin</span></button>
+    <button class="gx-r" data-view="gorsel"><svg class="ic"><use href="#i-image"/></svg><span>Görsel</span></button>
+    <button class="gx-r" data-view="ses"><svg class="ic"><use href="#i-mic"/></svg><span>Ses</span></button>
+    <button class="gx-r" data-view="video"><svg class="ic"><use href="#i-video"/></svg><span>Video</span></button>
+  </aside>
+
+  <main class="gx-main">
+    <!-- KEŞFET -->
+    <section class="gx-view" id="v-kesfet">
+      <div class="gx-hero">
+        <div class="gx-brand">✦ AI-GALAXY</div>
+        <div class="gx-panel">
+          <div class="gx-ask">
+            <span>Ne üretmek istiyorsun?</span>
+            <button class="gx-mode on" data-m="Metin"><svg class="ic"><use href="#i-message"/></svg> Metin</button>
+            <button class="gx-mode" data-m="Görsel"><svg class="ic"><use href="#i-image"/></svg> Görsel</button>
+            <button class="gx-mode" data-m="Ses"><svg class="ic"><use href="#i-mic"/></svg> Ses</button>
+            <button class="gx-mode" data-m="Video"><svg class="ic"><use href="#i-video"/></svg> Video</button>
+          </div>
+          <div class="gx-input">
+            <textarea id="gxPrompt" rows="1" placeholder="Bir şeyler yaz..."></textarea>
+            <span class="gx-model" id="gxModel">DeepSeek V4 Flash · Free</span>
+            <button class="gx-send" id="gxSend" aria-label="Üret"><svg class="ic"><use href="#i-send"/></svg></button>
+          </div>
+          <p class="gx-disc">AI-LA AI MODELLERİ HATA YAPABİLİR. BİLGİLERİ KONTROL ETMEYİ UNUTMA.</p>
+        </div>
+        <div class="gx-tools">
+          <span class="gx-chip">⇅ Beğenilenler</span>
+          <span class="gx-chip">Filtreler</span>
+          <span class="gx-search"><svg class="ic"><use href="#i-search"/></svg> Prompt veya kullanıcı ara...</span>
+        </div>
+      </div>
+      <div class="gx-feed" id="gxFeed"></div>
+    </section>
+
+    <!-- KOLEKSİYON -->
+    <section class="gx-view" id="v-koleksiyon" hidden>
+      <div class="gx-coltop">
+        <div class="gx-seg"><button class="on">Ürettiklerim</button><button>Kaydettiklerim</button><button>Beğendiklerim</button></div>
+        <div class="gx-seg sm"><button class="on">Hepsi</button><button>Görseller</button><button>Videolar</button><button>Sesler</button><button>Müzikler</button></div>
+      </div>
+      <div class="gx-feed gx-col" id="gxCol"></div>
+    </section>
+
+    <!-- METİN / GÖRSEL / SES / VIDEO sohbet ekranı -->
+    <section class="gx-view gx-chat" id="v-sohbet" hidden>
+      <aside class="gx-hist">
+        <div class="gh-head"><b id="ghTitle">Metin Geçmişi</b><span id="ghCount">0 sohbet</span></div>
+        <button class="gh-new"><svg class="ic"><use href="#i-plus"/></svg> Yeni Sohbet</button>
+        <div class="gh-list" id="ghList"></div>
+      </aside>
+      <div class="gx-chatmain">
+        <div class="gx-welcome" id="gxWelcome">
+          <span class="gw-bot">✦</span>
+          <h2 id="gwTitle">Merhaba! Ben AI-LA</h2>
+          <p id="gwSub">Sana nasıl yardımcı olabilirim?</p>
+          <div class="gw-sugs" id="gwSugs"></div>
+        </div>
+        <div class="gx-thread" id="gxThread" hidden></div>
+        <div class="gx-chatin">
+          <textarea id="gxChatIn" rows="1" placeholder="Bir şeyler yaz..."></textarea>
+          <span class="gx-model" id="gxChatModel">DeepSeek V4 Flash · Free</span>
+          <button class="gx-send" id="gxChatSend" aria-label="Gönder"><svg class="ic"><use href="#i-send"/></svg></button>
+        </div>
+        <p class="gx-disc">AI-LA AI MODELLERİ HATA YAPABİLİR. BİLGİLERİ KONTROL ETMEYİ UNUTMA.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/appbar.js"></script>
+<script src="js/galaxy.js"></script>
+</body>
+</html>

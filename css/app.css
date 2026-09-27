@@ -1,0 +1,79 @@
+/* Üye (giriş yapılmış) uygulama kabuğu — ai-galaxy.app yapısından örneklenmiştir */
+.app-page { background:
+  radial-gradient(900px 520px at 78% -12%, rgba(124, 92, 255, 0.18), transparent 62%),
+  var(--bg); }
+
+.appbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+  padding: 12px clamp(14px, 3vw, 28px);
+}
+.appbar-in {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px 10px 16px; border-radius: 18px;
+  background: rgba(12, 17, 32, 0.92); backdrop-filter: blur(10px);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.9);
+}
+.ab-brand { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-display); font-weight: 700; letter-spacing: 0.02em; }
+.ab-logo { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center;
+  background: var(--grad-cta); color: #fff; font-size: 0.9rem; }
+.ab-nav { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.ab-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.82rem; font-weight: 600; color: var(--ink-soft);
+  padding: 9px 15px; border-radius: 12px; border: 1px solid var(--line);
+  background: rgba(8, 12, 24, 0.6); white-space: nowrap;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.ab-link:hover { color: var(--ink); border-color: var(--line-strong); }
+.ab-link.on { color: #fff; background: rgba(124, 92, 255, 0.22); border-color: rgba(124, 92, 255, 0.5); }
+.ab-link .ic { width: 15px; height: 15px; }
+.ab-credit {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; color: #fff;
+  padding: 9px 15px; border-radius: 12px; background: linear-gradient(90deg, #7c5cff, #c44ad0);
+}
+.ab-user { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 5px; border-radius: 999px;
+  border: 1px solid var(--line-strong); background: rgba(8, 12, 24, 0.7); }
+.ab-ava { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 0.8rem; font-weight: 700; color: #fff; background: var(--grad-cta); }
+.ab-user b { font-size: 0.8rem; font-weight: 600; }
+.ab-out { font-size: 0.72rem; color: var(--ink-dim); background: none; border: 0; cursor: pointer; padding: 4px 2px 4px 6px; }
+.ab-out:hover { color: var(--ink); }
+@media (max-width: 860px) {
+  .ab-link span, .ab-user b { display: none; }
+  .ab-link { padding: 9px 11px; }
+}
+
+/* uygulama içi başlık */
+.app-hero { padding: 116px 0 10px; text-align: center; }
+.app-hero .kicker { color: var(--violet); }
+.app-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; margin: 14px 0 12px; }
+.app-hero h1 em { font-style: normal; background: linear-gradient(90deg, #a78bfa, #e879f9); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.app-hero p { max-width: 640px; margin: 0 auto; color: var(--ink-dim); font-size: 0.95rem; }
+.app-sec { padding: 26px 0 80px; }
+.app-note {
+  margin-top: 34px; padding: 22px 24px; border-radius: var(--radius-lg);
+  border: 1px solid var(--line); background: var(--bg-card);
+  display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
+}
+.app-note b { font-family: var(--font-display); font-size: 1rem; }
+.app-note p { font-size: 0.86rem; color: var(--ink-dim); margin-top: 4px; max-width: 70ch; }
+.app-note a { margin-left: auto; }
+
+/* profil menüsü */
+.ab-prof { position: relative; }
+.ab-user { cursor: pointer; font: inherit; color: var(--ink); }
+.ab-user .ic { width: 14px; height: 14px; color: var(--ink-dim); }
+.ab-menu {
+  position: absolute; right: 0; top: calc(100% + 8px); width: 220px; z-index: 70;
+  padding: 8px; border-radius: 16px; background: #121829; border: 1px solid var(--line-strong);
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.95);
+}
+.abm-head { padding: 10px 12px 12px; border-bottom: 1px solid var(--line); margin-bottom: 6px; }
+.abm-head b { display: block; font-size: 0.9rem; }
+.abm-head span { font-size: 0.74rem; color: #ffc37a; }
+.abm-item { width: 100%; display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px;
+  font: inherit; font-size: 0.84rem; color: var(--ink-soft); background: none; border: 0; cursor: pointer; text-align: left; }
+.abm-item:hover { background: rgba(137, 136, 208, 0.1); color: #fff; }
+.abm-item .ic { width: 16px; height: 16px; }
+

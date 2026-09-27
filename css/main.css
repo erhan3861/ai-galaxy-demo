@@ -1,3 +1,6 @@
+/* hidden özniteliği, display tanımlı bileşenlerde de her zaman gizlesin */
+[hidden] { display: none !important; }
+
 /* ============================================================
    AI-GALAXY — Yetişkin landing (koyu premium)
    Palet: derin lacivert zemin + rafine indigo/menekşe + amber vurgu
@@ -627,3 +630,93 @@ footer {
   .prog-final .meta { margin-left: 0; }
 }
 .editor-browser img { display: block; width: 100%; height: auto; }
+
+/* ---------- Üyelik rozeti / demo giriş ---------- */
+.user-chip { display: inline-flex; align-items: center; gap: 9px; padding: 5px 6px 5px 12px; border-radius: 999px;
+  border: 1px solid var(--line-strong); background: rgba(12, 18, 34, 0.9); }
+.uc-credit { display: inline-flex; align-items: center; gap: 6px; font-size: 0.74rem; font-weight: 700; color: #ffc37a; }
+.uc-ava { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 0.78rem; font-weight: 700; color: #fff; background: var(--grad-cta); }
+.uc-name { font-size: 0.82rem; font-weight: 600; }
+.uc-out { font-size: 0.72rem; color: var(--ink-dim); background: none; border: 0; cursor: pointer; padding: 6px 8px; }
+.uc-out:hover { color: var(--ink); }
+
+.login-wrap[hidden] { display: none; }
+.login-wrap { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 20px;
+  background: rgba(3, 6, 16, 0.78); backdrop-filter: blur(6px); }
+.login-card { position: relative; width: min(400px, 100%); padding: 30px 28px 26px; border-radius: var(--radius-lg);
+  background: var(--bg-card); border: 1px solid var(--line-strong); box-shadow: 0 40px 90px -40px rgba(0,0,0,0.95); }
+.login-x { position: absolute; top: 14px; right: 14px; background: none; border: 0; color: var(--ink-dim); cursor: pointer; }
+.login-x:hover { color: var(--ink); }
+.login-brand { font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; color: var(--violet); }
+.login-card h3 { font-family: var(--font-display); font-size: 1.4rem; margin: 8px 0 6px; }
+.login-card > p { font-size: 0.86rem; color: var(--ink-dim); margin-bottom: 18px; }
+.login-f { display: block; font-size: 0.76rem; color: var(--ink-dim); margin-bottom: 12px; }
+.login-f input { display: block; width: 100%; margin-top: 6px; padding: 12px 14px; border-radius: 12px;
+  background: rgba(8, 12, 24, 0.9); border: 1px solid var(--line-strong); color: var(--ink); font: inherit; font-size: 0.9rem; }
+.login-f input:focus { outline: 2px solid rgba(79, 91, 249, 0.5); }
+.login-go { margin-top: 6px; }
+.login-note { display: block; margin-top: 12px; font-size: 0.72rem; color: var(--ink-dim); text-align: center; }
+
+/* ---------- Seviye filtresi ---------- */
+.lvl-filter { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.lvl { font: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer; color: var(--ink-dim);
+  padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line); background: rgba(12, 18, 34, 0.7);
+  transition: color .2s, border-color .2s, background .2s; }
+.lvl:hover { color: var(--ink); border-color: var(--line-strong); }
+.lvl.on { color: #fff; background: var(--grad-cta); border-color: transparent; box-shadow: 0 10px 26px -12px rgba(79,91,249,0.9); }
+
+/* ---------- Patika kartları ---------- */
+.patika-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 34px; }
+.pcard { position: relative; display: flex; flex-direction: column; gap: 12px; overflow: hidden;
+  padding: 24px 22px 22px; border-radius: var(--radius-lg);
+  background: var(--bg-card); border: 1px solid var(--line);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.pcard:hover { transform: translateY(-6px); border-color: rgba(79, 91, 249, 0.55);
+  box-shadow: 0 30px 60px -28px rgba(79, 91, 249, 0.75); }
+.pc-bg { position: absolute; inset: 0; background-size: cover; background-position: center;
+  opacity: 0.16; filter: saturate(1.1); transition: opacity .25s, transform .5s; }
+.pcard:hover .pc-bg { opacity: 0.3; transform: scale(1.06); }
+.pcard::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(7,11,22,0.62), rgba(7,11,22,0.95) 62%); }
+.pcard > * { position: relative; z-index: 1; }
+.pc-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.pc-ring { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  background: radial-gradient(circle at 30% 25%, rgba(124,92,255,0.95), rgba(79,91,249,0.85));
+  box-shadow: 0 0 0 5px rgba(79, 91, 249, 0.16), 0 10px 26px -10px rgba(79,91,249,0.9); }
+.pc-ring .ic { width: 21px; height: 21px; color: #fff; }
+.pc-lvlno { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; color: var(--violet); }
+.pcard h3 { font-family: var(--font-display); font-size: 1.12rem; line-height: 1.25; }
+.pc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.pc-tag { font-size: 0.7rem; font-weight: 600; color: var(--ink-soft); padding: 4px 10px; border-radius: 999px;
+  border: 1px solid var(--line); background: rgba(8, 12, 24, 0.6); }
+.pc-tag.gold { color: #ffc37a; border-color: rgba(255, 176, 66, 0.35); }
+.pc-prog { display: block; margin-top: auto; }
+.pc-prog-top { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--ink-dim); margin-bottom: 7px; }
+.pc-prog-top b { color: var(--ink-soft); font-weight: 600; }
+.pc-bar { display: block; height: 5px; border-radius: 99px; background: rgba(255,255,255,0.1); overflow: hidden; }
+.pc-bar i { display: block; height: 100%; border-radius: 99px; background: var(--grad-cta); }
+.pc-go { display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 4px; padding: 11px 16px; border-radius: 12px; font-size: 0.84rem; font-weight: 600;
+  color: var(--ink); border: 1px solid var(--line-strong); background: rgba(12, 18, 34, 0.75); transition: background .2s, color .2s; }
+.pcard:hover .pc-go { background: var(--grad-cta); border-color: transparent; color: #fff; }
+@media (max-width: 1180px) { .patika-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .patika-grid { grid-template-columns: 1fr; } }
+
+/* filtre + açılır arama */
+.pf-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.pf-row .lvl-filter { margin-top: 0; }
+.psearch {
+  display: inline-flex; align-items: center; height: 40px; border-radius: 999px; overflow: hidden;
+  border: 1px solid var(--line); background: rgba(12, 18, 34, 0.7);
+  width: 40px; transition: width .35s cubic-bezier(.2,.8,.2,1), border-color .2s, box-shadow .2s;
+}
+.psearch.open { width: 260px; border-color: rgba(124, 92, 255, 0.6); box-shadow: 0 10px 30px -14px rgba(124, 92, 255, 0.9); }
+.psearch button { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border: 0; background: none;
+  color: var(--ink-soft); cursor: pointer; border-radius: 50%; }
+.psearch button:hover { color: #fff; }
+.psearch .ic { width: 17px; height: 17px; }
+.psearch input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; color: var(--ink);
+  font: inherit; font-size: 0.86rem; padding: 0 14px 0 0; opacity: 0; transition: opacity .2s .1s; }
+.psearch.open input { opacity: 1; }
+.p-empty { grid-column: 1 / -1; text-align: center; padding: 30px; color: var(--ink-dim); font-size: 0.9rem; }
