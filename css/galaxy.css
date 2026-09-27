@@ -27,12 +27,14 @@
 /* keşfet */
 .gx-hero {
   position: relative; border-radius: 18px; overflow: hidden; padding: 30px 26px 20px;
+  /* adım ekranıyla aynı sade zemin (göz yormasın) */
   background:
-    linear-gradient(180deg, rgba(7, 9, 20, 0.2), rgba(7, 9, 20, 0.75)),
-    url("../media/ai_galaxy_clean_image.jpg") center top / cover;
+    radial-gradient(700px 220px at 50% 0%, rgba(124, 92, 255, 0.14), transparent 70%),
+    #0d0a1c;
+  border: 1px solid rgba(137, 136, 208, 0.12);
 }
 .gx-brand { text-align: center; font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700;
-  letter-spacing: 0.04em; margin-bottom: 18px; text-shadow: 0 6px 30px rgba(0, 0, 0, 0.6); }
+  letter-spacing: 0.04em; margin-bottom: 18px; }
 .gx-panel { max-width: 900px; margin: 0 auto; padding: 16px 18px 12px; border-radius: 20px;
   background: rgba(22, 14, 40, 0.86); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(8px); }
 .gx-ask { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
