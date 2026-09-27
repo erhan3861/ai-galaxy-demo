@@ -398,8 +398,9 @@
     if (!sovFeed.children.length) renderFeed();
     sovPrompt.value = "";
     sov.hidden = false;
-    $("sovQWrap").hidden = false;
-    $("sovQuestion").hidden = true;
+    // tutorial penceresi kapalı başlar; "Soruyu Gör" ile açılır
+    $("sovQWrap").hidden = true;
+    $("sovQuestion").hidden = false;
     document.body.style.overflow = "hidden";
   }
   function closeStudio() {

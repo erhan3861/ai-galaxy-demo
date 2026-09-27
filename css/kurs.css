@@ -1,3 +1,6 @@
+/* hidden özniteliği, display tanımlı bileşenlerde de her zaman gizlesin */
+[hidden] { display: none !important; }
+
 /* ============================================================
    AI-GALAXY — Kurs ekranı (Udemy tarzı: solda ders, sağda müfredat)
    ============================================================ */
@@ -508,7 +511,7 @@ button { font-family: var(--font-body); cursor: pointer; }
 .tut-line { height: 4px; margin: 0 16px; border-radius: 99px; background: #e8e3ff; overflow: hidden; }
 .tut-line i { display: block; height: 100%; background: #6d3ff0; transition: width .3s ease; }
 .tut-pane { padding: 14px 16px 6px; overflow-y: auto; }
-.tut-media { position: relative; border-radius: 14px; overflow: hidden; background: #0c0a18; aspect-ratio: 16 / 7; }
+.tut-media { position: relative; border-radius: 14px; overflow: hidden; background: #0c0a18; aspect-ratio: 16 / 7; max-height: 32vh; width: 100%; }
 .tut-media img, .tut-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .tut-flagbox { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: #fff;
   background: radial-gradient(circle at 50% 40%, #3b2a8f, #120d2b 70%); padding: 20px; }
