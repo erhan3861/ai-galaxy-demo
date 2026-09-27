@@ -37,9 +37,9 @@
         <a class="nav-link" href="#editor">AI-Stüdyo</a>
         <a class="nav-link" href="#galeri">Şablonlar</a>
         <a class="nav-link" href="#fiyat">Paketler</a>
-        <a class="nav-cta" href="#fiyat">Ücretsiz Giriş</a>
-        <!-- Kids: üst menünün en sağında -->
+        <!-- Kids: Paketler'in hemen sağında -->
         <a class="nav-link kids-link" href="kids/index.html">Kids</a>
+        <a class="nav-cta" href="#fiyat">Ücretsiz Giriş</a>
       </nav>
       <button class="nav-burger" id="burger" aria-label="Menü">☰</button>
     </div>
@@ -145,55 +145,24 @@
         Uygulamalı<br><em style="font-style:normal;color:var(--violet)">AI okuryazarlığı.</em>
       </h2>
       <p style="color:var(--ink-soft)">Gerçek AI-GALAXY editöründe öğrenirsin — izleyerek değil, üreterek.</p>
+
+      <!-- Hafta hafta ders videoları: hızlı geçiş montajı -->
+      <figure class="lesson-reel">
+        <video src="media/dersler_montaj.mp4" poster="media/poster_dersler_montaj.jpg" muted loop playsinline data-autoplay></video>
+        <figcaption>
+          <b>8 haftalık ders videosu</b>
+          <span>Komut mu soru mu · net görev · bağlam · uzunluk · üslup · hedef kitle · çıktı biçimi · kurallar</span>
+        </figcaption>
+      </figure>
     </div>
-    <!-- Dersten stüdyoya akış simülasyonu -->
-    <div class="browser reveal d1 editor-browser flow-sim" id="flowSim">
+    <div class="browser reveal d1 editor-browser">
       <div class="browser-bar">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="browser-url" id="fsUrl">ai-galaxy.app/ders/hafta-2</span>
+        <span class="browser-url">ai-galaxy.app/studio</span>
       </div>
-
-      <div class="fs-stage">
-        <!-- 1) Ders ekranı -->
-        <div class="fs-screen fs-lesson on" id="fsLesson">
-          <div class="fsl-bar">
-            <span class="fsl-week">Hafta 2 · Ders videosu</span>
-            <b class="fsl-title">İyi prompt yazma</b>
-            <span class="fsl-prog"><i id="fsProg"></i></span>
-          </div>
-          <video id="fsVideo" src="media/ders_prompt_nedir.mp4" poster="media/poster_ders_prompt_nedir.jpg" muted loop playsinline></video>
-          <div class="fsl-foot">
-            <span class="fsl-hint">Ders bitti — sıra sende.</span>
-            <span class="fsl-btn" id="fsOpen"><svg class="ic"><use href="#i-sparkle"/></svg> Stüdyoda Aç</span>
-          </div>
-        </div>
-
-        <!-- 2) AI-GALAXY editörü -->
-        <div class="fs-screen fs-studio" id="fsStudio">
-          <div class="fss-top">
-            <span class="fss-brand">✦ AI-GALAXY</span>
-            <span class="fss-task">Görev: Hafta 2 · İyi prompt yazma</span>
-            <span class="fss-credit"><svg class="ic"><use href="#i-zap"/></svg> 90 kredi</span>
-          </div>
-          <div class="fss-row">
-            <span class="fss-mode on">Görsel</span><span class="fss-mode">Video</span><span class="fss-mode">Ses</span>
-          </div>
-          <div class="fss-input">
-            <span id="fsTyped"></span><span class="fs-caret"></span>
-            <span class="fss-send" id="fsSend"><svg class="ic"><use href="#i-sparkle"/></svg> Üret</span>
-          </div>
-          <div class="fss-out">
-            <div class="fss-gen" id="fsGen"><span class="fs-spin"></span> Üretiliyor...</div>
-            <video id="fsOut" muted loop playsinline></video>
-            <span class="fss-tag" id="fsTag"><svg class="ic"><use href="#i-check"/></svg> AI ile üretildi · üretim günlüğüne eklendi</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="fs-steps">
-        <span class="fs-step on" data-s="0">1 · Dersi izle</span>
-        <span class="fs-step" data-s="1">2 · Stüdyoya geç</span>
-        <span class="fs-step" data-s="2">3 · Kendin üret</span>
+      <video src="media/editor_ders.mp4" poster="media/poster_editor_ders.jpg" muted loop playsinline data-autoplay></video>
+      <div class="eb-cap">
+        <span class="eb-dot"></span> Gerçek AI-GALAXY editörü: keşfet akışı → görsel üretimi → prompt yazımı
       </div>
     </div>
   </div>

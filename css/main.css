@@ -627,89 +627,24 @@ footer {
   .prog-final .meta { margin-left: 0; }
 }
 
-/* ---------- Dersten stüdyoya akış simülasyonu ---------- */
-.flow-sim { overflow: hidden; }
-.fs-stage { position: relative; aspect-ratio: 16 / 10; background: #05070f; }
-.fs-screen {
-  position: absolute; inset: 0; opacity: 0; transform: translateY(10px) scale(0.985);
-  transition: opacity .5s ease, transform .5s ease; pointer-events: none;
-  display: flex; flex-direction: column;
+/* ---------- Editör kaydı altyazısı ---------- */
+.eb-cap {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 14px; border-top: 1px solid var(--line);
+  background: var(--bg-card-2); font-size: 0.76rem; color: var(--ink-dim);
 }
-.fs-screen.on { opacity: 1; transform: none; }
+.eb-dot { width: 7px; height: 7px; border-radius: 50%; background: #ff5f57; box-shadow: 0 0 0 0 rgba(255,95,87,0.6); animation: ebRec 1.6s ease-out infinite; flex: none; }
+@keyframes ebRec { 70% { box-shadow: 0 0 0 7px rgba(255,95,87,0); } 100% { box-shadow: 0 0 0 0 rgba(255,95,87,0); } }
+@media (prefers-reduced-motion: reduce) { .eb-dot { animation: none; } }
 
-/* 1) ders ekranı */
-.fsl-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--bg-card-2); }
-.fsl-week { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet); font-weight: 700; white-space: nowrap; }
-.fsl-title { font-size: 0.84rem; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.fsl-prog { margin-left: auto; width: 110px; height: 4px; border-radius: 99px; background: rgba(255,255,255,0.12); overflow: hidden; flex: none; }
-.fsl-prog i { display: block; height: 100%; width: 8%; border-radius: 99px; background: var(--grad-cta); transition: width .3s linear; }
-.fs-lesson video { flex: 1; width: 100%; object-fit: cover; min-height: 0; background: #05070f; }
-.fsl-foot { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-top: 1px solid var(--line); background: var(--bg-card-2); }
-.fsl-hint { font-size: 0.78rem; color: var(--ink-dim); opacity: 0; transition: opacity .4s; }
-.fsl-hint.on { opacity: 1; }
-.fsl-btn {
-  margin-left: auto; display: inline-flex; align-items: center; gap: 7px;
-  font-size: 0.78rem; font-weight: 700; color: #fff;
-  padding: 9px 16px; border-radius: 999px; background: var(--grad-cta); white-space: nowrap;
+/* ---------- Ders videosu montajı (AI-Stüdyo bölümü) ---------- */
+.lesson-reel {
+  margin-top: 24px; border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--line); background: var(--bg-card);
+  max-width: 420px;
 }
-.fsl-btn.pulse { animation: fsPulse 0.85s ease-in-out 2; }
-@keyframes fsPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(79, 91, 249, 0.55); transform: none; }
-  50% { box-shadow: 0 0 0 12px rgba(79, 91, 249, 0); transform: scale(1.06); }
-}
-
-/* 2) stüdyo ekranı */
-.fs-studio { padding: 12px 14px 14px; gap: 9px; background: linear-gradient(180deg, rgba(79,91,249,0.10), #05070f 55%); }
-.fss-top { display: flex; align-items: center; gap: 10px; }
-.fss-brand { font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.05em; }
-.fss-task { font-size: 0.7rem; color: var(--ink-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.fss-credit { margin-left: auto; display: inline-flex; align-items: center; gap: 5px; font-size: 0.68rem; font-weight: 700; color: #ffc37a; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,176,66,0.35); white-space: nowrap; }
-.fss-row { display: flex; gap: 6px; }
-.fss-mode { font-size: 0.7rem; font-weight: 600; color: var(--ink-dim); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); }
-.fss-mode.on { color: #fff; background: var(--grad-cta); border-color: transparent; }
-.fss-input {
-  display: flex; align-items: center; gap: 8px; min-height: 44px;
-  padding: 0 8px 0 14px; border-radius: 13px;
-  background: rgba(8, 12, 24, 0.9); border: 1px solid var(--line-strong);
-  font-size: 0.84rem; color: var(--ink); overflow: hidden;
-}
-.fss-input > span:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.fs-caret { width: 2px; height: 16px; background: var(--violet); animation: fsBlink 1s steps(1) infinite; flex: none; }
-@keyframes fsBlink { 50% { opacity: 0; } }
-.fss-send {
-  margin-left: auto; display: inline-flex; align-items: center; gap: 6px; flex: none;
-  font-size: 0.75rem; font-weight: 700; color: #fff; padding: 8px 14px; border-radius: 10px; background: var(--grad-cta);
-}
-.fss-send.pulse { animation: fsPulse 0.8s ease-in-out 1; }
-.fss-out { position: relative; flex: 1; min-height: 0; border-radius: 13px; overflow: hidden; border: 1px solid var(--line); background: #070b16; }
-.fss-out video { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
-.fss-out video.show { opacity: 1; }
-.fss-gen {
-  position: absolute; inset: 0; display: none; align-items: center; justify-content: center; gap: 10px;
-  font-size: 0.8rem; color: var(--ink-soft); background: rgba(7, 11, 22, 0.92);
-}
-.fss-gen.on { display: flex; }
-.fs-spin { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.18); border-top-color: var(--violet); animation: fsSpin 0.8s linear infinite; }
-@keyframes fsSpin { to { transform: rotate(360deg); } }
-.fss-tag {
-  position: absolute; left: 10px; bottom: 10px;
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.7rem; font-weight: 600; color: var(--teal);
-  padding: 5px 11px; border-radius: 999px;
-  background: rgba(7, 11, 22, 0.82); border: 1px solid rgba(45, 212, 191, 0.35);
-  opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s;
-}
-.fss-tag.on { opacity: 1; transform: none; }
-
-/* adım göstergesi */
-.fs-steps { display: flex; gap: 6px; padding: 10px 12px; border-top: 1px solid var(--line); background: var(--bg-card-2); }
-.fs-step { font-size: 0.7rem; font-weight: 600; color: var(--ink-dim); padding: 5px 11px; border-radius: 999px; border: 1px solid transparent; transition: color .3s, background .3s, border-color .3s; }
-.fs-step.on { color: var(--ink); background: rgba(79, 91, 249, 0.14); border-color: rgba(79, 91, 249, 0.4); }
-@media (max-width: 560px) {
-  .fss-task, .fsl-hint { display: none; }
-  .fs-steps { flex-wrap: wrap; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .fs-screen { transition: none; }
-  .fsl-btn.pulse, .fss-send.pulse, .fs-caret, .fs-spin { animation: none; }
-}
+.lesson-reel video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #05070f; }
+.lesson-reel figcaption { display: block; padding: 12px 14px; border-top: 1px solid var(--line); }
+.lesson-reel b { display: block; font-size: 0.84rem; font-weight: 700; margin-bottom: 4px; }
+.lesson-reel span { display: block; font-size: 0.74rem; color: var(--ink-dim); line-height: 1.5; }
+@media (max-width: 980px) { .lesson-reel { max-width: none; } }
