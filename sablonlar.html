@@ -17,25 +17,28 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
   <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></symbol>
 </svg>
 
 <header class="appbar" id="appbar" data-active="sablonlar"></header>
 
-<section class="app-hero">
+<main class="app-sec tp-page">
   <div class="wrap">
-    <span class="kicker">Discover</span>
-    <h1>Şablonlarla <em>üret,</em><br>keşfet, paylaş.</h1>
-    <p>Hazır AI şablonlarının alanlarını doldur ve saniyeler içinde içerik üret.</p>
-    <label class="tp-search"><svg class="ic"><use href="#i-search"/></svg><input id="tpSearch" type="search" placeholder="Şablon ara…"></label>
-    <div class="tp-seg"><button class="on" data-s="all">▦ Şablonlar</button><button data-s="mine">◈ Koleksiyonum</button></div>
-  </div>
-</section>
-
-<main class="app-sec">
-  <div class="wrap">
-    <div class="tp-cats" id="tpCats"></div>
+    <div class="tp-toolbar">
+      <div class="tp-seg"><button class="on" data-s="all">▦ Şablonlar</button><button data-s="mine">◈ Koleksiyonum</button></div>
+      <div class="psearch" id="tpSearchBox">
+        <button type="button" id="tpSearchBtn" aria-label="Şablon ara"><svg class="ic"><use href="#i-search"/></svg></button>
+        <input id="tpSearch" type="search" placeholder="Şablon ara…" aria-label="Şablon ara">
+      </div>
+    </div>
+    <div class="tp-catbar">
+      <button class="tp-arrow prev" id="tpPrev" aria-label="Önceki kategoriler" hidden><svg class="ic"><use href="#i-chev-l"/></svg></button>
+      <div class="tp-cats" id="tpCats"></div>
+      <button class="tp-arrow next" id="tpNext" aria-label="Sonraki kategoriler"><svg class="ic"><use href="#i-chev-r"/></svg></button>
+    </div>
     <div class="tp-grid" id="tpGrid"></div>
   </div>
 </main>
