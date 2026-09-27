@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-GALAXY — Uygulamalı AI Okuryazarlığı</title>
+  <meta name="description" content="Yetişkinler için uygulamalı AI okuryazarlığı stüdyosu: gerçek editörde üret, çıktını sorgula, portfolyonu büyüt. 8–15 yaş için AI-GALAXY Kids.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=Nunito:wght@800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f5bf9'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- Telifsiz çizgi ikon seti (Feather stili, MIT) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></symbol>
+  <symbol id="i-slash" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5.5L19.5 10 14 12l-2 5.5L10 12 4.5 10 10 8.5 12 3z"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">✦</span> AI-GALAXY
+    </a>
+    <div class="nav-right">
+      <!-- Kids: menülerin solunda, sade -->
+      <a class="nav-link kids-link" href="kids/index.html">Kids</a>
+      <nav class="nav-links-wrap" id="navLinks">
+        <a class="nav-link" href="#program">Program</a>
+        <a class="nav-link" href="#editor">Stüdyo</a>
+        <a class="nav-link" href="#galeri">Galeri</a>
+        <a class="nav-link" href="#fiyat">Paketler</a>
+        <a class="nav-cta" href="#fiyat">Ücretsiz Dene</a>
+      </nav>
+      <button class="nav-burger" id="burger" aria-label="Menü">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO: canlı stüdyo ============ -->
+<section class="hero">
+  <!-- Arka plan: kayan üretim duvarı -->
+  <div class="hero-wall" aria-hidden="true">
+    <div class="wall-row r1">
+      <div class="wall-track">
+        <img src="media/poster_sty_vangogh.jpg" alt=""><img src="media/poster_kids_korsan.jpg" alt=""><img src="media/poster_out_okyanus.jpg" alt=""><img src="media/pos_kagitkesme.jpg" alt=""><img src="media/poster_sty_popart.jpg" alt=""><img src="media/img_cikartma.jpg" alt=""><img src="media/poster_tpl_kurum.jpg" alt=""><img src="media/poster_sty_kubist.jpg" alt="">
+        <img src="media/poster_sty_vangogh.jpg" alt=""><img src="media/poster_kids_korsan.jpg" alt=""><img src="media/poster_out_okyanus.jpg" alt=""><img src="media/pos_kagitkesme.jpg" alt=""><img src="media/poster_sty_popart.jpg" alt=""><img src="media/img_cikartma.jpg" alt=""><img src="media/poster_tpl_kurum.jpg" alt=""><img src="media/poster_sty_kubist.jpg" alt="">
+      </div>
+    </div>
+    <div class="wall-row r2">
+      <div class="wall-track">
+        <img src="media/poster_out_bilim.jpg" alt=""><img src="media/img_vlog.jpg" alt=""><img src="media/poster_sty_barok.jpg" alt=""><img src="media/pos_bina3d.jpg" alt=""><img src="media/img_portre.jpg" alt=""><img src="media/poster_tpl_canlanan.jpg" alt=""><img src="media/poster_kids_denizalti.jpg" alt=""><img src="media/poster_kids_epik.jpg" alt="">
+        <img src="media/poster_out_bilim.jpg" alt=""><img src="media/img_vlog.jpg" alt=""><img src="media/poster_sty_barok.jpg" alt=""><img src="media/pos_bina3d.jpg" alt=""><img src="media/img_portre.jpg" alt=""><img src="media/poster_tpl_canlanan.jpg" alt=""><img src="media/poster_kids_denizalti.jpg" alt=""><img src="media/poster_kids_epik.jpg" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="hero-veil"></div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">✦ Uygulamalı AI okuryazarlığı</span>
+      <h1>İzleme.<br>Üret.</h1>
+      <p class="lead">AI'ı herkes kullanıyor — sen ustalaş. Gerçek stüdyoda, yaparak.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#program">Programı Keşfet →</a>
+        <a class="btn-ghost" href="#galeri">Üretimleri Gör</a>
+      </div>
+    </div>
+
+    <!-- Canlı stüdyo simülasyonu (AI-GALAXY editörü) -->
+    <div class="studio" id="studio">
+      <div class="studio-app">
+        <span class="sa-brand">✦ AI-GALAXY</span>
+        <span class="sa-pill"><svg class="ic"><use href="#i-sparkle"/></svg> Şablonlar</span>
+        <span class="sa-credit"><svg class="ic"><use href="#i-zap"/></svg> 90 kredi</span>
+        <span class="sa-avatar">S</span>
+      </div>
+      <div class="studio-body">
+        <div class="studio-tabs">
+          <span class="tabs-q">Ne üretmek istiyorsun?</span>
+          <span class="on">Görsel</span><span>Video</span><span>Ses</span><span>Metin</span>
+        </div>
+        <div class="studio-input">
+          <span class="typed" id="typed"></span><span class="caret" id="caret"></span>
+          <button class="send" aria-hidden="true" tabindex="-1">➤</button>
+        </div>
+        <div class="studio-chips" id="chips"></div>
+        <div class="studio-out">
+          <div class="gen-state" id="genState">✦ Üretiliyor<span class="gen-dots"><i>.</i><i>.</i><i>.</i></span></div>
+          <video id="outVid" muted playsinline preload="auto"></video>
+          <div class="out-tag" id="outTag">✓ AI ile üretildi · üretim günlüğüne eklendi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAM: patikalar + haftalık içerik ============ -->
+<section id="program">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">Eğitim programı</span>
+      <h2>Dört patika. <em>Fikirden ürüne.</em></h2>
+      <p>Her patika 8 hafta / 16 saattir ve gerçek bir final projesiyle biter. Patikaya tıkla, derslere başla.</p>
+    </div>
+
+    <div class="prog-tabs reveal" id="progTabs">
+      <a class="prog-tab" href="kurs.html?p=0&w=1">
+        <span class="pt-thumb"><img src="media/poster_sty_vangogh.jpg" alt=""></span>
+        <span class="pt-body"><span class="pt-num">01</span><h3>Temel AI Creator</h3><span class="pt-level">Başlangıç</span></span>
+      </a>
+      <a class="prog-tab" href="kurs.html?p=1&w=1">
+        <span class="pt-thumb"><img src="media/poster_out_okyanus.jpg" alt=""></span>
+        <span class="pt-body"><span class="pt-num">02</span><h3>Orta AI Creator</h3><span class="pt-level">Orta</span></span>
+      </a>
+      <a class="prog-tab" href="kurs.html?p=2&w=1">
+        <span class="pt-thumb"><img src="media/poster_tpl_kurum.jpg" alt=""></span>
+        <span class="pt-body"><span class="pt-num">03</span><h3>İleri AI Filmmaker</h3><span class="pt-level">İleri</span></span>
+      </a>
+      <a class="prog-tab" href="kurs.html?p=3&w=1">
+        <span class="pt-thumb"><img src="media/pos_bina3d.jpg" alt=""></span>
+        <span class="pt-body"><span class="pt-num">04</span><h3>İleri AI Coder</h3><span class="pt-level">İleri</span></span>
+      </a>
+    </div>
+
+    <div class="resume-row" id="resumeRow"></div>
+  </div>
+</section>
+
+<!-- ============ EDİTÖR ============ -->
+<section class="editor-sec" id="editor">
+  <div class="wrap editor-grid">
+    <div class="reveal editor-copy">
+      <span class="kicker">Stüdyo</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;margin:14px 0 14px;">
+        Uygulamalı<br><em style="font-style:normal;color:var(--violet)">AI okuryazarlığı.</em>
+      </h2>
+      <p style="color:var(--ink-soft)">Gerçek AI-GALAXY editöründe öğrenirsin — izleyerek değil, üreterek.</p>
+    </div>
+    <div class="browser reveal d1 editor-browser">
+      <div class="browser-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="browser-url">ai-galaxy.app/studio</span>
+      </div>
+      <video src="media/rec_desk.mp4" poster="media/poster_rec_desk.jpg" muted loop playsinline data-autoplay></video>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERİ / SHOWCASE ============ -->
+<section class="showcase-sec" id="galeri">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">Stüdyodan çıkanlar</span>
+      <h2>Bir stüdyo. <em>Dört sanat dili.</em></h2>
+      <p>Stil kavramını slaytta değil, uygulamada öğrenirsin: kendi fotoğrafını dört farklı sanat diline taşırsın — ve her birinin promptu açık.</p>
+    </div>
+    <div class="style-grid">
+      <figure class="style-tile reveal"><video src="media/sty_vangogh.mp4" poster="media/poster_sty_vangogh.jpg" muted loop playsinline data-autoplay></video><figcaption>Van Gogh fırçası</figcaption></figure>
+      <figure class="style-tile reveal d1"><video src="media/sty_barok.mp4" poster="media/poster_sty_barok.jpg" muted loop playsinline data-autoplay></video><figcaption>Barok ışık</figcaption></figure>
+      <figure class="style-tile reveal d2"><video src="media/sty_kubist.mp4" poster="media/poster_sty_kubist.jpg" muted loop playsinline data-autoplay></video><figcaption>Kübist biçim</figcaption></figure>
+      <figure class="style-tile reveal d3"><video src="media/sty_popart.mp4" poster="media/poster_sty_popart.jpg" muted loop playsinline data-autoplay></video><figcaption>Pop Art renk</figcaption></figure>
+    </div>
+    <div class="transform-band">
+      <div class="reveal">
+        <span class="kicker">Referanstan üretime</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.25;margin:14px 0 14px;">
+          Fikir kâğıtta başlar,<br>stüdyoda hayat bulur.
+        </h2>
+        <p style="color:var(--ink-soft);font-size:0.98rem">
+          Bir referans ver — eskiz, fotoğraf ya da birkaç cümle. Stüdyo her adımı ve
+          her revizyonu saklar; fikrin nasıl geliştiğini baştan sona görürsün.
+          Bu, tek bir araç değil; her üretimde işleyen mantık.
+        </p>
+      </div>
+      <div class="browser reveal d1">
+        <div class="browser-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="browser-url">ai-galaxy.app/studio</span>
+        </div>
+        <video src="media/sketch_to_image.mp4" poster="media/poster_sketch_to_image.jpg" muted loop playsinline data-autoplay></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEMPLATES ============ -->
+<section id="sablonlar">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Şablonlar</span>
+      <h2>Hazır şablonlarla başla, <em>mantığını kavra.</em></h2>
+      <p>Yüzlerce hazır şablon seni bekler: alanları doldur, saniyeler içinde üret. Her şablon aynı üretim mantığını kullanır — kullandıkça o mantığı sen de kurmayı öğrenirsin.</p>
+    </div>
+    <div class="tpl-grid">
+      <article class="tpl-card reveal">
+        <div class="media"><video src="media/tpl_kurum.mp4" poster="media/poster_tpl_kurum.jpg" muted loop playsinline data-hoverplay></video></div>
+        <div class="body"><h3>Kurum Tanıtım Videosu</h3><p>Görsellerin ve logonla yüksek enerjili tanıtım filmi.</p></div>
+      </article>
+      <article class="tpl-card reveal d1">
+        <div class="media"><video src="media/tpl_canlanan.mp4" poster="media/poster_tpl_canlanan.jpg" muted loop playsinline data-hoverplay></video></div>
+        <div class="body"><h3>Canlanan Nesneler</h3><p>Videondaki nesneyi sahnenin doğal parçası yap.</p></div>
+      </article>
+      <article class="tpl-card reveal d2">
+        <div class="media"><img src="media/img_vlog.jpg" alt="13 karelik vlog hikâye panosu örneği" loading="lazy"></div>
+        <div class="body"><h3>Hikâye Panosu</h3><p>Tek fotoğraftan 13 karelik anlatı panosu kur.</p></div>
+      </article>
+      <article class="tpl-card reveal d3">
+        <div class="media"><img src="media/img_portre.jpg" alt="Sinematik portre örneği" loading="lazy"></div>
+        <div class="body"><h3>Sinematik Portre</h3><p>Güçlü ışık ve kompozisyonla profesyonel portre.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SÖZ ============ -->
+<section class="quote-sec">
+  <div class="wrap">
+    <div class="quote-card reveal">
+      <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=520&q=70" alt="Programı tamamlayan bir katılımcı" loading="lazy">
+      <div class="quote-body">
+        <blockquote>
+          "Yıllardır 'AI kullanıyorum' sanıyordum. Sekiz haftada fark ettim ki
+          kullanmıyormuşum, tıklıyormuşum. Şimdi ekibime sunumu, kampanya görselini
+          ve senaryoyu kendi promptlarımla hazırlıyorum — ve neden işe yaradığını biliyorum."
+        </blockquote>
+        <cite><b>Pazarlama yöneticisi</b> · Orta AI Creator mezunu</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FİYAT ============ -->
+<section id="fiyat">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">Paketler</span>
+      <h2>Üretmeye <em>bugün</em> başla.</h2>
+      <p>Kredin, tüm üretim türlerinde geçer. Program içerikleri her pakette açık; kredi yalnızca üretimde harcanır.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <span class="plan">Başlangıç</span>
+        <div class="credits">100 <span>kredi / ay</span></div>
+        <ul>
+          <li>Tüm öğrenme patikaları</li>
+          <li>Standart şablonlar</li>
+          <li>Üretim günlüğü ve portfolyo</li>
+        </ul>
+        <div class="amount">297 TL <span>/ ay</span></div>
+        <a class="btn-ghost" href="#" style="justify-content:center">Paketi Seç</a>
+      </div>
+      <div class="price-card popular reveal d1">
+        <span class="pop-badge">EN POPÜLER</span>
+        <span class="plan">Creator</span>
+        <div class="credits">250 <span>kredi / ay</span></div>
+        <ul>
+          <li>Tüm öğrenme patikaları</li>
+          <li>50+ AI modeline erişim</li>
+          <li>Video şablonları dahil</li>
+          <li>Üretim günlüğü ve portfolyo</li>
+        </ul>
+        <div class="amount">495 TL <span>/ ay</span></div>
+        <a class="btn-primary" href="#" style="justify-content:center">Paketi Seç</a>
+      </div>
+      <div class="price-card reveal d2">
+        <span class="plan">Stüdyo</span>
+        <div class="credits">1.000 <span>kredi / ay</span></div>
+        <ul>
+          <li>Tüm öğrenme patikaları</li>
+          <li>50+ AI modeline erişim</li>
+          <li>Öncelikli üretim kuyruğu</li>
+          <li>Üretim günlüğü ve portfolyo</li>
+        </ul>
+        <div class="amount">1.400 TL <span>/ ay</span></div>
+        <a class="btn-ghost" href="#" style="justify-content:center">Paketi Seç</a>
+      </div>
+    </div>
+    <p class="price-foot">Okul veya ekibin için mi bakıyorsun? <a href="#">Kurumsal teklif al →</a></p>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2 class="reveal">İzleyen değil,<br>üreten tarafta ol.</h2>
+    <p class="reveal d1">İlk üretimin ücretsiz. Promptunu kur, çıktını gör, farkı yaşa.</p>
+    <div class="cta-row reveal d2" style="justify-content:center">
+      <a class="btn-primary" href="#fiyat">Ücretsiz Dene →</a>
+      <a class="btn-ghost" href="kids/index.html"><svg class="ic"><use href="#i-send"/></svg> Çocuğun için: AI-GALAXY Kids</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-grid">
+    <a class="brand" href="index.html"><span class="brand-mark">✦</span> AI-GALAXY</a>
+    <nav class="foot-links">
+      <a href="#program">Program</a>
+      <a href="#editor">Stüdyo</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#fiyat">Paketler</a>
+      <a href="kids/index.html">Kids</a>
+      <a href="#">KVKK Aydınlatma</a>
+      <a href="#">Gizlilik ve Çerezler</a>
+      <a href="#">İletişim</a>
+    </nav>
+    <p class="foot-note">© 2026 AI-GALAXY · Talent14 altyapısıyla · Bu sayfa bir tasarım demosudur; üretimler AI-GALAXY stüdyosunda oluşturulmuş gerçek örneklerdir ve "AI ile üretildi" etiketi taşır.</p>
+  </div>
+</footer>
+
+<script src="js/programs.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

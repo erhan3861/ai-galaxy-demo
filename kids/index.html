@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-GALAXY Kids — Çocuklar için AI Okuryazarlığı</title>
+  <meta name="description" content="8–15 yaş için uygulamalı AI okuryazarlığı: AI'ın nasıl çalıştığını keşfet, güvenli kullan, kendi hikâyeni üret. Görevlerle, rozetlerle, adım adım.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%235b43e0'/%3E%3Ctext x='16' y='22' font-size='15' text-anchor='middle' fill='white'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../css/kids.css">
+</head>
+<body>
+
+<!-- Telifsiz, sade çizgi ikon seti (Feather stili, MIT) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.83z"/><line x1="7" y1="7" x2="7.01" y2="7"/></symbol>
+  <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.5h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5.5L19.5 10 14 12l-2 5.5L10 12 4.5 10 10 8.5 12 3z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="knav" id="knav">
+  <div class="wrap knav-inner">
+    <a class="kbrand" href="index.html">
+      <span class="mark">✦</span> AI-GALAXY <span class="kids-tag">KIDS</span>
+    </a>
+    <div class="knav-right">
+      <a class="back-adult" href="../index.html">← AI-GALAXY'e Dön</a>
+      <a class="kcta" href="#macera">Maceraya Başla <svg class="ic"><use href="#i-send"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="khero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="wrap khero-grid">
+    <div>
+      <span class="age-badge"><svg class="ic"><use href="#i-star"/></svg> 8–15 yaş için</span>
+      <h1>AI'ı <span class="hl-p">keşfet</span>,<br>süper gücünü <span class="hl-o">öğren!</span></h1>
+      <p class="lead">
+        Yapay zekâ sihir değil — nasıl çalıştığını öğrenebilirsin.
+        Görevleri tamamla, rozetleri topla, kendi hikâyeni ve karakterlerini üret.
+      </p>
+      <div class="kbtn-row">
+        <a class="kbtn-big" href="#macera">Maceraya Başla <svg class="ic"><use href="#i-send"/></svg></a>
+        <a class="kbtn-line" href="#studyo"><svg class="ic"><use href="#i-play"/></svg> Stüdyoyu Gör</a>
+      </div>
+    </div>
+    <div class="khero-visual reveal">
+      <div class="khero-video">
+        <video src="../media/kids_denizalti.mp4" poster="../media/poster_kids_denizalti.jpg" muted loop playsinline data-autoplay></video>
+      </div>
+      <div class="sticker s1"><svg class="ic"><use href="#i-sparkle"/></svg> Bunu bir öğrenci üretti!</div>
+      <div class="sticker s2"><svg class="ic"><use href="#i-zap"/></svg> +50 puan</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ YOLCULUK ============ -->
+<section id="macera">
+  <div class="wrap">
+    <div class="khead reveal">
+      <span class="tag">Görev haritası</span>
+      <h2>Dört adımda <em>AI kâşifi</em> ol!</h2>
+      <p>Her adımda görevler var. Görevleri bitir, puanları topla, bir sonraki gezegene geç!</p>
+    </div>
+    <div class="journey">
+      <div class="j-step reveal"><div class="j-num"><svg class="ic"><use href="#i-compass"/></svg></div><h3>Keşfet</h3><p>AI nedir, nerede karşımıza çıkar? Her yerdeki AI'ı bul.</p></div>
+      <div class="j-step reveal d1"><div class="j-num"><svg class="ic"><use href="#i-book"/></svg></div><h3>Öğren</h3><p>AI nasıl öğrenir, neden bazen yanılır? Sırlarını çöz.</p></div>
+      <div class="j-step reveal d2"><div class="j-num"><svg class="ic"><use href="#i-edit"/></svg></div><h3>Üret</h3><p>Kendi karakterini, hikâyeni ve kısa videonu üret.</p></div>
+      <div class="j-step reveal d3"><div class="j-num"><svg class="ic"><use href="#i-share"/></svg></div><h3>Paylaş</h3><p>Üretimini etiketle, sınıfınla paylaş, yöntemini anlat.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PATİKALAR (kompakt, görselli) ============ -->
+<section class="explain-sec" id="patikalar">
+  <div class="wrap">
+    <div class="khead reveal">
+      <span class="tag">Kurslar</span>
+      <h2>Hangi gezegenden <em>başlayacaksın?</em></h2>
+      <p>Her patika 8 hafta sürer ve senin ürettiğin gerçek bir projeyle biter.</p>
+    </div>
+    <div class="kpaths">
+      <a class="kpath reveal" href="patika.html?p=0">
+        <span class="kp-img"><img src="../media/poster_kids_denizalti.jpg" alt="Temel AI Creator patikası görseli"></span>
+        <div class="kp-body">
+          <span class="kp-level">Gezegen 1 · Başlangıç</span>
+          <h3>Temel AI Creator</h3>
+          <span class="kp-role"><svg class="ic"><use href="#i-star"/></svg> Hikâye Anlatıcısı</span>
+          <span class="kp-final">Final: 60–90 sn kendi videon</span>
+        </div>
+      </a>
+      <a class="kpath reveal d1" href="patika.html?p=1">
+        <span class="kp-img"><img src="../media/poster_kids_kedi.jpg" alt="Orta AI Creator patikası görseli"></span>
+        <div class="kp-body">
+          <span class="kp-level">Gezegen 2 · Orta</span>
+          <h3>Orta AI Creator</h3>
+          <span class="kp-role"><svg class="ic"><use href="#i-layers"/></svg> Evren Kurucusu</span>
+          <span class="kp-final">Final: kendi mini evrenin</span>
+        </div>
+      </a>
+      <a class="kpath reveal d2" href="patika.html?p=2">
+        <span class="kp-img"><img src="../media/poster_kids_korsan.jpg" alt="İleri AI Filmmaker patikası görseli"></span>
+        <div class="kp-body">
+          <span class="kp-level">Gezegen 3 · İleri</span>
+          <h3>İleri AI Filmmaker</h3>
+          <span class="kp-role"><svg class="ic"><use href="#i-film"/></svg> Küçük Yönetmen</span>
+          <span class="kp-final">Final: 2–3 dk kısa filmin</span>
+        </div>
+      </a>
+      <a class="kpath reveal d3" href="patika.html?p=3">
+        <span class="kp-img"><img src="../media/pos_bina3d.jpg" alt="İleri AI Coder patikası görseli"></span>
+        <div class="kp-body">
+          <span class="kp-level">Gezegen 4 · İleri</span>
+          <h3>İleri AI Coder</h3>
+          <span class="kp-role"><svg class="ic"><use href="#i-code"/></svg> Oyun Yapımcısı</span>
+          <span class="kp-final">Final: kendi oyunun</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERİ ============ -->
+<section>
+  <div class="wrap">
+    <div class="khead reveal">
+      <span class="tag">İlham köşesi</span>
+      <h2>Neler <em>üretebilirsin?</em></h2>
+      <p>Bunların hepsi AI-GALAXY'de üretildi. Sıradaki senin olabilir!</p>
+    </div>
+    <div class="kgallery">
+      <figure class="kg-tile reveal"><video src="../media/kids_korsan.mp4" poster="../media/poster_kids_korsan.jpg" muted loop playsinline data-autoplay></video><figcaption>Korsan Macerası</figcaption></figure>
+      <figure class="kg-tile reveal d1"><video src="../media/kids_kedi.mp4" poster="../media/poster_kids_kedi.jpg" muted loop playsinline data-autoplay></video><figcaption>Şehirli Kedi Ailesi</figcaption></figure>
+      <figure class="kg-tile reveal d2"><video src="../media/kids_bilim.mp4" poster="../media/poster_kids_bilim.jpg" muted loop playsinline data-autoplay></video><figcaption>Bilim Sahnesi</figcaption></figure>
+      <figure class="kg-tile reveal d3"><video src="../media/kids_epik.mp4" poster="../media/poster_kids_epik.jpg" muted loop playsinline data-autoplay></video><figcaption>Epik Yolculuk</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UYGULAMANIN İÇİNDEN: PATİKA + DERS PENCERESİ ============ -->
+<section class="safety-sec" id="harita">
+  <div class="wrap">
+    <div class="khead reveal">
+      <span class="tag">Uygulamanın içinden</span>
+      <h2>Görev haritan ve derslerin <em>seni bekliyor</em></h2>
+      <p>Adım adım ilerle, kilitleri aç, puanları topla. Her ders böyle bir pencerede seni karşılar.</p>
+    </div>
+    <div class="app-mocks">
+
+      <!-- Patika haritası -->
+      <div class="pmap reveal">
+        <div class="pmap-top">
+          <div class="pmap-banner">
+            <span class="pmb-kicker">AI PATİKASI</span>
+            <b>AI-GALAXY İlkokul-4</b>
+          </div>
+          <div class="pmap-chips"><span>36 Adım</span><span>500 Puan</span></div>
+        </div>
+        <div class="pmap-board">
+          <svg class="pm-path" viewBox="0 0 320 330" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M160 36 C 225 60, 245 105, 205 140 C 165 175, 105 185, 118 225 C 130 262, 190 275, 175 305"
+              fill="none" stroke="#8f8aff" stroke-opacity="0.75" stroke-width="5"
+              stroke-linecap="round" stroke-dasharray="0.1 14"/>
+          </svg>
+          <div class="pm-node start" style="left:50%;top:11%"><span class="pm-tip">BAŞLA</span><svg class="ic"><use href="#i-zap"/></svg></div>
+          <div class="pm-node" style="left:64%;top:42%"><svg class="ic"><use href="#i-lock"/></svg></div>
+          <div class="pm-node" style="left:37%;top:68%"><svg class="ic"><use href="#i-lock"/></svg></div>
+          <div class="pm-node" style="left:55%;top:92%"><svg class="ic"><use href="#i-lock"/></svg></div>
+          <div class="pm-stats">
+            <div class="pms-row"><b>0 / 36</b><span>adım</span></div>
+            <div class="pms-row"><b>0 / 180</b><span>puan</span></div>
+            <span class="pms-btn">Sıradaki adım →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ders penceresi -->
+      <div class="tut reveal d1">
+        <div class="tut-top">
+          <span class="tt-pill on">Soru</span><span class="tt-pill">İpucu</span>
+          <span class="tt-speeds"><i class="on">1x</i><i>1.5x</i><i>2x</i></span>
+          <span class="tt-x"><svg class="ic"><use href="#i-x"/></svg></span>
+        </div>
+        <div class="tut-body">
+          <div class="tut-title">
+            <span class="tt-num">1</span>
+            <div><h4>Komut mu, Soru mu?</h4><span>AI-Galaxy · Ders 1</span></div>
+          </div>
+          <div class="tut-progress"><i style="width:48%"></i></div>
+          <div class="tut-row">
+            <img src="../media/poster_sty_vangogh.jpg" alt="Ders görseli">
+            <div class="tut-right">
+              <span class="tt-tag">Görsel sanatlar</span>
+              <p class="tt-bubble">Lütfen ressam kedi usta olarak; geleneksel Ebru renklerinin dansını 3 cümlelik masal hâlinde anlat ve su üzerindeki renk damlaları resmini çiz.</p>
+              <div class="tt-btns">
+                <span class="tt-btn p"><svg class="ic"><use href="#i-copy"/></svg> Kopyala</span>
+                <span class="tt-btn"><svg class="ic"><use href="#i-volume"/></svg> Dinle</span>
+              </div>
+            </div>
+          </div>
+          <div class="tut-foot"><span class="tt-ghost">← Geri</span><b>12 / 25</b><span class="tt-primary">İleri →</span></div>
+        </div>
+        <div class="tut-input">
+          <svg class="ic"><use href="#i-key"/></svg>
+          <span>Şifreyi yaz</span>
+          <span class="tt-send">Gönder →</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ STÜDYO (editör simülasyonu) ============ -->
+<section id="studyo">
+  <div class="wrap">
+    <div class="khead reveal">
+      <span class="tag">Senin stüdyon</span>
+      <h2>AI-GALAXY editörü <em>elinin altında</em></h2>
+      <p>Hayalini yaz, editör üretsin. Derslerde tam bu ekranda çalışacaksın.</p>
+    </div>
+    <div class="kstudio reveal" id="kstudio">
+      <div class="ks-bar">
+        <span class="ks-brand">✦ AI-GALAXY <b>KIDS</b></span>
+        <span class="ks-tab on">Görsel</span>
+        <span class="ks-tab">Video</span>
+        <span class="ks-avatar"><svg class="ic"><use href="#i-user"/></svg></span>
+      </div>
+      <div class="ks-player">
+        <video src="../media/rec_desk.mp4" poster="../media/poster_rec_desk.jpg" muted loop playsinline data-autoplay></video>
+        <span class="ks-tag on"><svg class="ic"><use href="#i-play"/></svg> Gerçek AI-GALAXY editörü</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OYUNLAŞTIRMA ============ -->
+<section class="game-sec">
+  <div class="wrap">
+    <div class="khead reveal">
+      <span class="tag">Oyun gibi</span>
+      <h2>Görev görev ilerle, <em>rozetleri topla</em></h2>
+      <p>Her patika küçük görevlere bölünür. Görevi bitir, puanı kap, yıldız haritanda ilerle!</p>
+    </div>
+    <div class="badges reveal">
+      <span class="badge"><svg class="ic"><use href="#i-compass"/></svg> Kâşif</span>
+      <span class="badge"><svg class="ic"><use href="#i-edit"/></svg> Prompt Ustası</span>
+      <span class="badge"><svg class="ic"><use href="#i-film"/></svg> Küçük Yönetmen</span>
+      <span class="badge"><svg class="ic"><use href="#i-shield"/></svg> Güvenlik Şampiyonu</span>
+      <span class="badge"><svg class="ic"><use href="#i-code"/></svg> Oyun Yapımcısı</span>
+      <span class="badge"><svg class="ic"><use href="#i-award"/></svg> Galaksi Yıldızı</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VELİ / ÖĞRETMEN ============ -->
+<section>
+  <div class="wrap">
+    <div class="parent-box reveal">
+      <div>
+        <h2>Veliler ve öğretmenler için</h2>
+        <p>AI-GALAXY Kids, çocuklara AI'ı yalnızca kullandırmaz; nasıl çalıştığını, nerede yanılabileceğini ve güvenli kullanımını öğretir.</p>
+        <ul>
+          <li>Yaşa uygun içerik ve kapalı sınıf galerisi</li>
+          <li>Veli onayı ile hesap, kişisel veri koruması</li>
+          <li>Öğretmen paneli: görev ver, ilerlemeyi izle</li>
+          <li>Her üretimde otomatik "AI ile üretildi" etiketi</li>
+        </ul>
+      </div>
+      <a class="parent-cta" href="../index.html#fiyat">Bilgi Al →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap kfoot">
+    <a class="kbrand" href="index.html"><span class="mark">✦</span> AI-GALAXY <span class="kids-tag">KIDS</span></a>
+    <nav class="links">
+      <a href="#macera">Görev Haritası</a>
+      <a href="#patikalar">Kurslar</a>
+      <a href="#studyo">Stüdyo</a>
+      <a href="../index.html">AI-GALAXY</a>
+      <a href="#">Veli Rehberi</a>
+    </nav>
+    <p class="note">© 2026 AI-GALAXY · Talent14 altyapısıyla · Bu sayfa bir tasarım demosudur. Videolar AI-GALAXY stüdyosunda üretilmiştir ve AI ile üretilmiştir.</p>
+  </div>
+</footer>
+
+<script src="../js/kids.js"></script>
+</body>
+</html>

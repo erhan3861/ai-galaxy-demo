@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff7ee">
+<title>AI-GALAXY Kids — Patika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff7ee;--card:#fff;--ink:#2b2160;--text:#544e78;--muted:#948ead;--line:#f0e7dc;
+  --purple:#5b43e0;--purple-d:#4531b5;--lav:#efeaff;--lav-b:#cfc3f7;--lav-d:#b3a2f0;
+  --orange:#ff8a3d;--peach:#fff1e0;--peach-b:#ffd9ac;
+  --green:#22b07d;--green-d:#178a60;
+  --shadow:0 2px 3px rgba(60,40,120,.05),0 12px 30px rgba(60,40,120,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font:600 16px/1.5 Nunito,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+h1,h2,h3{margin:0;color:var(--ink);font-family:"Baloo 2",Nunito,sans-serif;font-weight:800;line-height:1.15}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0}
+button:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.ic{width:20px;height:20px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(255,247,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:640px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.x{width:42px;height:42px;border-radius:14px;color:var(--muted);display:grid;place-items:center;background:#fff;border:2px solid var(--line);box-shadow:0 3px 0 var(--line);text-decoration:none}
+.x:active{transform:translateY(2px);box-shadow:none}
+.logo{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:19px;color:var(--purple)}
+.logo b{color:var(--ink)}
+.chips{margin-left:auto;display:flex;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:2px solid var(--line);border-radius:999px;padding:5px 12px;font-weight:800;font-size:13px;color:var(--ink)}
+.chip .ic{width:16px;height:16px;color:var(--orange)}
+
+.wrap{max-width:640px;margin:auto;padding:0 16px}
+.hero{margin:18px 0 4px;background:#fff;border-radius:26px;padding:18px 20px;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow);border:2px solid var(--line)}
+.hero .bot{width:92px;flex:none}
+.hero .bot svg{width:100%;height:auto;overflow:visible;display:block}
+.hero small{display:block;font-weight:900;font-size:12px;letter-spacing:1px;color:var(--purple);text-transform:uppercase}
+.hero h1{font-size:26px}
+.hero p{font-weight:700;margin-top:2px;font-size:14px}
+.bar{height:12px;background:var(--lav);border-radius:9px;margin-top:10px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#8e74f5,var(--purple));border-radius:9px;transition:width .6s}
+
+.path{padding:4px 0 80px}
+.world{margin:30px 0 16px;display:flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:20px;background:#fff;border:2px solid var(--line);box-shadow:var(--shadow)}
+.world .wi{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;color:var(--purple);flex:none}
+.world .wi .ic{width:26px;height:26px}
+.world h2{font-size:18px}
+.world small{display:block;font-weight:800;color:var(--muted);font-size:12px}
+.node-row{display:flex;justify-content:center;height:92px}
+.node{position:relative;width:72px;height:68px;border-radius:50%;font-weight:900;font-size:15px;display:grid;place-items:center;font-family:"Baloo 2",sans-serif}
+.node .ni{width:26px;height:26px}
+.node.locked{background:#fff;color:#c2bbd8;border:3px solid var(--line);box-shadow:0 5px 0 var(--line);cursor:pointer}
+.node.done{background:linear-gradient(180deg,#2cc28b,var(--green));color:#fff;box-shadow:0 5px 0 var(--green-d)}
+.node.current{background:linear-gradient(180deg,#7b5cf0,var(--purple));color:#fff;box-shadow:0 5px 0 var(--purple-d),0 12px 24px rgba(91,67,224,.3)}
+.node.current:before{content:"";position:absolute;inset:-10px;border-radius:50%;border:4px solid var(--lav-d);animation:ring 1.6s infinite}
+.node .tag{position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);background:#fff;color:var(--purple);font:900 11px Nunito,sans-serif;padding:3px 10px;border-radius:9px;border:2px solid var(--lav-b);white-space:nowrap;animation:bob 1.4s ease-in-out infinite;letter-spacing:.5px}
+.node.final{width:90px;height:84px;background:var(--peach);border:3px solid var(--peach-b);box-shadow:0 5px 0 var(--peach-b);color:var(--orange)}
+.node.final .ni{width:36px;height:36px}
+@keyframes ring{0%{transform:scale(.9);opacity:.7}100%{transform:scale(1.25);opacity:0}}
+@keyframes bob{50%{transform:translate(-50%,-4px)}}
+
+.shade{position:fixed;inset:0;background:rgba(43,33,96,.32);z-index:40;display:flex;align-items:flex-end;justify-content:center;animation:fade .2s}
+.sheet{background:#fff;width:100%;max-width:520px;border-radius:28px 28px 0 0;padding:22px 20px calc(24px + env(safe-area-inset-bottom));animation:up .25s ease-out}
+.sheet .num{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--muted);font-size:13px}
+.sheet .num .ic{width:20px;height:20px;color:var(--purple)}
+.sheet h3{font-size:24px;margin:6px 0}
+.sheet p{font-weight:700;margin-bottom:12px;font-size:15px}
+.sheet .out{display:flex;align-items:center;gap:8px;background:var(--peach);border:1.5px dashed var(--peach-b);border-radius:14px;padding:9px 12px;font-weight:800;font-size:13px;color:var(--ink);margin-bottom:16px}
+.sheet .out .ic{width:18px;height:18px;color:var(--orange)}
+.btn{display:flex;width:100%;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:18px;font-weight:900;font-size:16px;background:linear-gradient(180deg,#7b5cf0,var(--purple));color:#fff;box-shadow:0 4px 0 var(--purple-d);text-decoration:none;transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--purple-d)}
+.btn.light{background:#fff;color:var(--purple);box-shadow:0 3px 0 var(--line);border:2px solid var(--line)}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@keyframes fade{from{opacity:0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+</svg>
+
+<header class="top"><div class="top-in">
+  <a class="x" href="index.html#patikalar" aria-label="Kurslara dön"><svg class="ic"><use href="#i-arrow-left"/></svg></a>
+  <div class="logo">AI-GALAXY <b>Kids</b></div>
+  <div class="chips">
+    <span class="chip" title="Tamamlanan görev"><svg class="ic"><use href="#i-check"/></svg><span id="doneCount">0</span>/16</span>
+    <span class="chip" title="Yıldız"><svg class="ic"><use href="#i-star"/></svg><span id="starCount">0</span></span>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="bot" aria-hidden="true">
+      <svg viewBox="0 0 120 110">
+        <g stroke-linecap="round" stroke-width="4"><path d="M8 20 l7 7 M2 38 h9" stroke="#b3a2f0"/><path d="M106 12 l-4 9 M116 26 l-9 4" stroke="#ffb15c"/></g>
+        <ellipse cx="60" cy="102" rx="34" ry="5" fill="#2b2160" opacity=".07"/>
+        <rect x="8" y="46" width="16" height="30" rx="8" fill="#b3a2f0"/><rect x="96" y="46" width="16" height="30" rx="8" fill="#b3a2f0"/>
+        <rect x="16" y="22" width="88" height="74" rx="32" fill="#fff" stroke="#ddd5f7" stroke-width="2"/>
+        <rect x="26" y="38" width="68" height="46" rx="20" fill="#2b2160"/>
+        <path d="M38 60 q8 -11 16 0 M66 60 q8 -11 16 0" stroke="#b9a6ff" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+        <path d="M49 69 q11 9 22 0" stroke="#b9a6ff" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div style="flex:1;min-width:0">
+      <small id="heroLevel">Gezegen</small>
+      <h1 id="heroTitle">Patika</h1>
+      <p id="heroSub">Görevleri sırayla tamamla, gezegeni fethet.</p>
+      <div class="bar"><i id="heroBar" style="width:0"></i></div>
+    </div>
+  </section>
+  <section class="path" id="path" aria-label="Görev patikası"></section>
+</main>
+
+<script src="../js/programs.js"></script>
+<script>
+(function () {
+  "use strict";
+  var PROGRAMS = window.AIG_PROGRAMS || [];
+  var params = new URLSearchParams(location.search);
+  var P = parseInt(params.get("p"), 10);
+  if (isNaN(P) || !PROGRAMS[P]) P = 0;
+  var prog = PROGRAMS[P];
+
+  var GEZEGEN = ["Gezegen 1", "Gezegen 2", "Gezegen 3", "Gezegen 4"];
+  document.title = "AI-GALAXY Kids — " + prog.title;
+  document.getElementById("heroLevel").textContent = GEZEGEN[P] + " · " + prog.level;
+  document.getElementById("heroTitle").textContent = prog.title;
+
+  // kurs ekranıyla ortak ilerleme durumu
+  var state = { progs: {} };
+  try {
+    var raw = JSON.parse(localStorage.getItem("aig_kurs") || "null");
+    if (raw && typeof raw === "object") state = Object.assign(state, raw);
+  } catch (e) {}
+  var doneArr = (state.progs && state.progs[P] && state.progs[P].done) || [];
+  function isDone(w, i) { return doneArr.indexOf(w + i) !== -1; }
+
+  // görev sırası: her hafta önce ders (v) sonra etkinlik (a)
+  var TASKS = [];
+  prog.weeks.forEach(function (wk, wi) {
+    TASKS.push({ w: wi + 1, i: "v", label: "Ders", t: wk.t, d: wk.d, out: wk.out });
+    TASKS.push({ w: wi + 1, i: "a", label: "Görev", t: wk.t + " — uygulama", d: wk.d, out: wk.out });
+  });
+  var curIdx = TASKS.length;
+  for (var k = 0; k < TASKS.length; k++) {
+    if (!isDone(TASKS[k].w, TASKS[k].i)) { curIdx = k; break; }
+  }
+
+  var icon = function (name, cls) {
+    return '<svg class="' + (cls || "ic") + '"><use href="#i-' + name + '"/></svg>';
+  };
+  var el = function (tag, cls, html) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (html != null) e.innerHTML = html;
+    return e;
+  };
+  var esc = function (s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  };
+
+  var path = document.getElementById("path");
+  var lastW = 0, idx = 0;
+  TASKS.forEach(function (task, n) {
+    if (task.w !== lastW) {
+      lastW = task.w;
+      path.appendChild(el("div", "world",
+        '<span class="wi" style="background:var(--lav)">' + icon("flag") + "</span>" +
+        '<div><small>Hafta ' + task.w + " · 2 görev</small><h2>" + esc(prog.weeks[task.w - 1].t) + "</h2></div>"));
+      idx = 0;
+    }
+    var row = el("div", "node-row");
+    var st = isDone(task.w, task.i) ? "done" : n === curIdx ? "current" : "locked";
+    var inner = st === "done" ? icon("check", "ni ic")
+      : st === "locked" ? icon("lock", "ni ic")
+      : icon(task.i === "v" ? "play" : "edit", "ni ic");
+    var b = el("button", "node " + st, inner);
+    if (n === curIdx) b.insertAdjacentHTML("beforeend", '<span class="tag">BAŞLA</span>');
+    b.style.transform = "translateX(" + Math.round(Math.sin(idx * 1.1) * 72) + "px)";
+    b.setAttribute("aria-label", "Hafta " + task.w + " " + task.label + ": " + task.t);
+    b.onclick = function () { openSheet(task, n); };
+    row.appendChild(b);
+    path.appendChild(row);
+    idx++;
+  });
+  // final rozeti
+  var fin = el("div", "node-row");
+  fin.style.cssText = "height:118px;margin-top:14px";
+  var fb = el("button", "node final", icon("award", "ni ic"));
+  fb.setAttribute("aria-label", "Final projesi");
+  fb.onclick = function () {
+    openSheet({ w: 8, i: "final", label: "Final", t: "Final projesi", d: prog.final, out: prog.final }, TASKS.length);
+  };
+  fin.appendChild(fb);
+  path.appendChild(fin);
+
+  // sayaç + ilerleme
+  var doneN = TASKS.filter(function (t) { return isDone(t.w, t.i); }).length;
+  document.getElementById("doneCount").textContent = doneN;
+  document.getElementById("starCount").textContent = doneN * 3;
+  document.getElementById("heroBar").style.width = (doneN / TASKS.length * 100) + "%";
+  if (doneN === TASKS.length) document.getElementById("heroSub").textContent = "Gezegeni fethettin! Final projen hazır.";
+
+  function openSheet(task, n) {
+    var done = task.i !== "final" && isDone(task.w, task.i);
+    var locked = task.i !== "final" && !done && n !== curIdx;
+    var finLocked = task.i === "final" && doneN < TASKS.length;
+    var shade = el("div", "shade");
+    var sh = el("div", "sheet");
+    var body = done ? "Tamamladın! İstersen tekrar bakabilirsin."
+      : locked ? "Önceki görevleri bitirince açılır."
+      : finLocked ? "16 görevi bitir, final projeni sun!"
+      : esc(task.d);
+    sh.innerHTML = '<div class="num">' + icon(locked || finLocked ? "lock" : task.i === "a" ? "edit" : task.i === "final" ? "award" : "play") +
+      (task.i === "final" ? "Final" : "Hafta " + task.w + " · " + task.label) + "</div>" +
+      "<h3>" + esc(task.t) + "</h3><p>" + body + "</p>" +
+      (!locked && !finLocked ? '<div class="out">' + icon("star") + "Kazanım: " + esc(task.out) + "</div>" : "");
+    if (locked || finLocked) {
+      var ok = el("button", "btn light", "Tamam");
+      ok.onclick = function () { shade.remove(); };
+      sh.appendChild(ok);
+    } else if (task.i === "final") {
+      var okF = el("button", "btn", "Süpersin!");
+      okF.onclick = function () { shade.remove(); };
+      sh.appendChild(okF);
+    } else {
+      var go = el("a", "btn");
+      go.href = "../kurs.html?p=" + P + "&w=" + task.w + "&i=" + task.i + "&kids=1&studio=1";
+      go.textContent = done ? "Tekrar oyna" : "Başla";
+      sh.appendChild(go);
+    }
+    shade.appendChild(sh);
+    shade.onclick = function (e) { if (e.target === shade) shade.remove(); };
+    document.body.appendChild(shade);
+  }
+})();
+</script>
+</body>
+</html>
