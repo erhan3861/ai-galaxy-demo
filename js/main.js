@@ -100,34 +100,34 @@
   var ICONS = { amac: "i-crosshair", baglam: "i-compass", stil: "i-edit", kisit: "i-slash" };
   var SCENES = [
     {
-      prompt: "Yıldızlı bir gecede, Van Gogh fırça dokusuyla bir portre",
+      prompt: "Gün batımında palmiyeli bulvarda ilerleyen pembe klasik Cadillac",
       chips: [
-        { c: "amac", t: "Amaç: portre" },
-        { c: "stil", t: "Stil: Van Gogh, yıldızlı gece" },
-        { c: "kisit", t: "Kısıt: yüz hatları korunacak" }
+        { c: "amac", t: "Amaç: aksiyon sahnesi" },
+        { c: "baglam", t: "Bağlam: neon bulvar, gün batımı" },
+        { c: "stil", t: "Stil: retro sinematik, alçak kamera" }
       ],
-      video: "media/hero_sty_vangogh.mp4",
-      poster: "media/poster_hero_sty_vangogh.jpg"
+      video: "media/hero_out_araba.mp4",
+      poster: "media/poster_hero_out_araba.jpg"
     },
     {
-      prompt: "Bir laboratuvarda meraklı bir kâşif, sinematik ışık",
-      chips: [
-        { c: "amac", t: "Amaç: karakter sahnesi" },
-        { c: "baglam", t: "Bağlam: bilim, laboratuvar" },
-        { c: "stil", t: "Stil: sinematik ışık" }
-      ],
-      video: "media/hero_out_bilim.mp4",
-      poster: "media/poster_hero_out_bilim.jpg"
-    },
-    {
-      prompt: "Okyanusun derinliklerinde renkli bir mercan dünyası",
+      prompt: "Lego bloklarından kurulmuş bir sahil şehri, minyatür kamera turu",
       chips: [
         { c: "amac", t: "Amaç: dünya tasarımı" },
-        { c: "baglam", t: "Bağlam: okyanus, keşif" },
-        { c: "stil", t: "Stil: canlı renkler" }
+        { c: "baglam", t: "Bağlam: sahil caddesi, şehir silueti" },
+        { c: "stil", t: "Stil: stop-motion, minyatür" }
       ],
-      video: "media/hero_out_okyanus.mp4",
-      poster: "media/poster_hero_out_okyanus.jpg"
+      video: "media/hero_out_lego.mp4",
+      poster: "media/poster_hero_out_lego.jpg"
+    },
+    {
+      prompt: "Metro peronunda tren bekleyen bir karakter, soğuk ışık",
+      chips: [
+        { c: "amac", t: "Amaç: karakter sahnesi" },
+        { c: "baglam", t: "Bağlam: gece metrosu, bekleyiş" },
+        { c: "kisit", t: "Kısıt: tek çekim, sakin kamera" }
+      ],
+      video: "media/hero_out_metro.mp4",
+      poster: "media/poster_hero_out_metro.jpg"
     }
   ];
 
