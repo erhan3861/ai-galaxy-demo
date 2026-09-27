@@ -51,8 +51,8 @@
   var courseTitle = $("courseTitle"), progressBar = $("progressBar"), progressText = $("progressText");
   var playerWrap = $("playerWrap"), lessonVid = $("lessonVid");
   var activityWrap = $("activityWrap"), actTitle = $("actTitle"), actDesc = $("actDesc"), actOut = $("actOut");
-  var lessonWeek = $("lessonWeek"), lessonTitle = $("lessonTitle"), lessonDesc = $("lessonDesc"), lessonOut = $("lessonOut");
-  var btnDone = $("btnDone"), noteArea = $("noteArea"), noteSaved = $("noteSaved");
+  var lessonWeek = $("lessonWeek"), lessonTitle = $("lessonTitle");
+  var btnDone = $("btnDone");
 
   function prog() { return PROGRAMS[cur.p]; }
   function doneList() {
@@ -111,8 +111,6 @@
     document.title = prog().title + " · Hafta " + cur.w + " — AI-GALAXY";
     lessonWeek.textContent = "Hafta " + cur.w + " / 8 · " + (cur.i === "v" ? "Ders videosu" : "Uygulama etkinliği");
     lessonTitle.textContent = wk.t;
-    lessonDesc.textContent = wk.d;
-    lessonOut.textContent = wk.out;
 
     if (cur.i === "v") {
       playerWrap.hidden = false;
@@ -133,11 +131,6 @@
     var done = isDone(cur.w, cur.i);
     btnDone.classList.toggle("done", done);
     btnDone.textContent = done ? "✓ Tamamlandı" : "✓ Tamamla ve ilerle";
-
-    // notlar
-    var nk = cur.p + ":" + itemKey(cur.w, cur.i);
-    noteArea.value = (state.notes && state.notes[nk]) || "";
-    noteSaved.textContent = "";
 
     // kaldığın yeri kaydet
     state.last = { p: cur.p, w: cur.w, i: cur.i, kids: kidsMode };
@@ -162,30 +155,6 @@
     else if (cur.w < 8) { cur.w++; cur.i = "v"; }
     save();
     renderLesson();
-  });
-
-  // ---------- sekmeler ----------
-  document.querySelectorAll(".ltab").forEach(function (t) {
-    t.addEventListener("click", function () {
-      document.querySelectorAll(".ltab").forEach(function (x) { x.classList.remove("active"); });
-      t.classList.add("active");
-      ["genel", "kaynak", "not"].forEach(function (n) {
-        $("panel-" + n).hidden = n !== t.dataset.tab;
-      });
-    });
-  });
-
-  // ---------- notlar ----------
-  var noteTimer;
-  noteArea.addEventListener("input", function () {
-    clearTimeout(noteTimer);
-    noteTimer = setTimeout(function () {
-      if (!state.notes) state.notes = {};
-      state.notes[cur.p + ":" + itemKey(cur.w, cur.i)] = noteArea.value;
-      save();
-      noteSaved.textContent = "✓ Not kaydedildi";
-      setTimeout(function () { noteSaved.textContent = ""; }, 1800);
-    }, 500);
   });
 
   // ---------- sağ menü aç/kapat ----------

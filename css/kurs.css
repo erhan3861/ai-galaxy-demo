@@ -166,41 +166,6 @@ button { font-family: var(--font-body); cursor: pointer; }
 .btn-done:hover { transform: translateY(-2px); }
 .btn-done.done { background: rgba(45, 212, 191, 0.15); color: var(--teal); box-shadow: none; border: 1px solid rgba(45, 212, 191, 0.4); }
 
-/* Sekmeler */
-.ltabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
-.ltab {
-  padding: 11px 18px; background: none; border: none;
-  color: var(--ink-dim); font-size: 0.88rem; font-weight: 600;
-  border-bottom: 2px solid transparent; margin-bottom: -1px;
-}
-.ltab:hover { color: var(--ink-soft); }
-.ltab.active { color: var(--ink); border-bottom-color: var(--accent); }
-.lpanel p { color: var(--ink-soft); font-size: 0.94rem; max-width: 62ch; }
-.lp-out {
-  margin-top: 14px; font-size: 0.88rem; color: var(--ink-soft);
-  padding: 12px 15px; border-radius: 11px;
-  background: rgba(45, 212, 191, 0.07); border: 1px solid rgba(45, 212, 191, 0.25);
-}
-.lp-out b { color: var(--teal); }
-.lp-flow { margin-top: 14px; font-size: 0.8rem !important; color: var(--ink-dim) !important; }
-.res-list { list-style: none; display: grid; gap: 9px; max-width: 480px; }
-.res-list li {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 13px 16px; border-radius: 11px;
-  background: var(--bg-card); border: 1px solid var(--line);
-  font-size: 0.9rem;
-}
-.res-list a:hover { color: var(--violet); }
-.res-list span { font-size: 0.68rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.1em; }
-#noteArea {
-  width: 100%; min-height: 160px; resize: vertical;
-  background: var(--bg-card); border: 1px solid var(--line-strong);
-  border-radius: 12px; padding: 14px 16px;
-  color: var(--ink); font-family: var(--font-body); font-size: 0.92rem;
-}
-#noteArea:focus { outline: 2px solid rgba(79, 91, 249, 0.5); }
-.note-saved { display: block; margin-top: 8px; font-size: 0.76rem; color: var(--teal); min-height: 1.2em; }
-
 /* ---------- Sağ menü ---------- */
 .kside {
   position: sticky; top: var(--top-h);
