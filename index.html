@@ -94,9 +94,12 @@
           <button class="send" aria-hidden="true" tabindex="-1">➤</button>
         </div>
         <div class="studio-chips" id="chips"></div>
-        <div class="studio-out">
-          <div class="gen-state" id="genState">✦ Üretiliyor<span class="gen-dots"><i>.</i><i>.</i><i>.</i></span></div>
-          <video id="outVid" muted playsinline preload="auto"></video>
+        <div class="studio-out has-shot">
+          <img class="studio-shot" src="media/editor_hero.jpg" alt="AI-GALAXY editörü" loading="lazy">
+          <div class="out-card">
+            <div class="gen-state" id="genState">✦ Üretiliyor<span class="gen-dots"><i>.</i><i>.</i><i>.</i></span></div>
+            <video id="outVid" muted playsinline preload="auto"></video>
+          </div>
           <div class="out-tag" id="outTag">✓ AI ile üretildi · üretim günlüğüne eklendi</div>
         </div>
       </div>
@@ -144,26 +147,15 @@
       <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;margin:14px 0 14px;">
         Uygulamalı<br><em style="font-style:normal;color:var(--violet)">AI okuryazarlığı.</em>
       </h2>
-      <p style="color:var(--ink-soft)">Gerçek AI-GALAXY editöründe öğrenirsin — izleyerek değil, üreterek.</p>
-
-      <!-- Hafta hafta ders videoları: hızlı geçiş montajı -->
-      <figure class="lesson-reel">
-        <video src="media/dersler_montaj.mp4" poster="media/poster_dersler_montaj.jpg" muted loop playsinline data-autoplay></video>
-        <figcaption>
-          <b>8 haftalık ders videosu</b>
-          <span>Komut mu soru mu · net görev · bağlam · uzunluk · üslup · hedef kitle · çıktı biçimi · kurallar</span>
-        </figcaption>
-      </figure>
+      <p style="color:var(--ink-soft)">AI okuryazarlığı slaytta değil, üretim ekranında yerleşir. AI-Stüdyo tek bir arayüzde metin, görsel, ses ve video modellerini yan yana koyar: derste öğrendiğin prompt anatomisini aynı ekranda denersin, çıktıyı görür, promptu düzeltir, farkı anında okursun.</p>
+      <p style="color:var(--ink-dim);font-size:0.9rem;margin-top:12px">Her üretim günlüğe düşer — hangi promptun neden çalıştığı senin kendi işlerinde kayıtlı kalır.</p>
     </div>
     <div class="browser reveal d1 editor-browser">
       <div class="browser-bar">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
         <span class="browser-url">ai-galaxy.app/studio</span>
       </div>
-      <video src="media/editor_ders.mp4" poster="media/poster_editor_ders.jpg" muted loop playsinline data-autoplay></video>
-      <div class="eb-cap">
-        <span class="eb-dot"></span> Gerçek AI-GALAXY editörü: keşfet akışı → görsel üretimi → prompt yazımı
-      </div>
+      <img src="media/editor_hero.jpg" alt="AI-GALAXY editörü: prompt alanı ve üretim akışı">
     </div>
   </div>
 </section>
