@@ -96,6 +96,59 @@
   map.appendChild(fWrap);
   map.appendChild(fLabel);
 
+  // ---- patika yolu: düğüm merkezlerinden geçen yumuşak eğri ----
+  var SVGNS = "http://www.w3.org/2000/svg";
+  function drawRoute(animate) {
+    var old = map.querySelector(".pm-route");
+    if (old) old.remove();
+    var nodes = map.querySelectorAll(".pm-node");
+    if (nodes.length < 2) return;
+    var mb = map.getBoundingClientRect();
+    var pts = Array.prototype.map.call(nodes, function (n) {
+      var r = n.getBoundingClientRect();
+      return { x: r.left - mb.left + r.width / 2, y: r.top - mb.top + r.height / 2 };
+    });
+    function pathThrough(list) {
+      var d = "M" + list[0].x + " " + list[0].y;
+      for (var k = 1; k < list.length; k++) {
+        var a = list[k - 1], b = list[k], my = (a.y + b.y) / 2;
+        d += " C" + a.x + " " + my + " " + b.x + " " + my + " " + b.x + " " + b.y;
+      }
+      return d;
+    }
+    var svg = document.createElementNS(SVGNS, "svg");
+    svg.setAttribute("class", "pm-route");
+    svg.setAttribute("aria-hidden", "true");
+    svg.innerHTML =
+      '<defs><linearGradient id="rtGrad" x1="0" y1="0" x2="0" y2="1">' +
+      '<stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#7c5cff"/></linearGradient></defs>';
+    var full = pathThrough(pts);
+    [["rt-base", full], ["rt-edge", full]].forEach(function (a) {
+      var pth = document.createElementNS(SVGNS, "path");
+      pth.setAttribute("class", a[0]); pth.setAttribute("d", a[1]);
+      svg.appendChild(pth);
+    });
+    var reach = Math.min(curIdx, pts.length - 1);
+    if (reach > 0) {
+      var done = document.createElementNS(SVGNS, "path");
+      done.setAttribute("class", "rt-done rt-draw");
+      done.setAttribute("d", pathThrough(pts.slice(0, reach + 1)));
+      svg.appendChild(done);
+    }
+    map.insertBefore(svg, map.firstChild);
+    var dp = svg.querySelector(".rt-done");
+    if (dp && animate) {
+      var L = dp.getTotalLength();
+      dp.style.strokeDasharray = L;
+      dp.style.strokeDashoffset = L;
+      requestAnimationFrame(function () { requestAnimationFrame(function () { dp.style.strokeDashoffset = 0; }); });
+    }
+  }
+  drawRoute(true);
+  var rtTimer;
+  window.addEventListener("resize", function () { clearTimeout(rtTimer); rtTimer = setTimeout(function () { drawRoute(false); }, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { drawRoute(false); });
+
   // ---- yan panel ----
   var pct = Math.round(doneN / STEPS.length * 100);
   document.getElementById("ptPct").textContent = "%" + pct;
