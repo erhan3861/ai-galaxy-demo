@@ -312,3 +312,21 @@
     loopScenes();
   }
 })();
+
+/* Hero videosu: hareket azaltma tercihinde poster kalır; ekran dışındayken durur */
+(function () {
+  var v = document.querySelector(".hero-vid");
+  if (!v) return;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    v.removeAttribute("autoplay"); v.pause();
+    return;
+  }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.15 }).observe(v);
+  }
+})();

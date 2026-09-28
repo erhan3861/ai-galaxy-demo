@@ -87,18 +87,35 @@
       <h1>İzleme.<br>Üret.</h1>
       <p class="lead">AI'ı herkes kullanıyor — sen ustalaş. Gerçek stüdyoda, yaparak.</p>
       <div class="cta-row">
-        <a class="btn-primary" href="#yolculuk">Yolculuğu Keşfet →</a>
+        <a class="btn-primary" href="#yolculuk">Programı Keşfet →</a>
         <a class="btn-ghost" href="#galeri">Üretimleri Gör</a>
       </div>
     </div>
 
-    <!-- Hero videosu: patika kartları → adım adım patika → editör → tutorial (AE: scripts/build/aig_hero.jsx) -->
-    <div class="hero-video">
-      <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="media/aig_hero_poster.jpg"
-             aria-label="AI-GALAXY: patikanı seç, adım adım ilerle, aynı ekranda üret">
-        <source src="media/aig_hero.webm" type="video/webm">
-        <source src="media/aig_hero.mp4" type="video/mp4">
-      </video>
+    <!-- Canlı stüdyo simülasyonu (AI-GALAXY editörü) -->
+    <div class="studio" id="studio">
+      <div class="studio-app">
+        <span class="sa-brand">✦ AI-GALAXY</span>
+        <span class="sa-pill"><svg class="ic"><use href="#i-sparkle"/></svg> Şablonlar</span>
+        <span class="sa-credit"><svg class="ic"><use href="#i-zap"/></svg> 90 kredi</span>
+        <span class="sa-avatar">S</span>
+      </div>
+      <div class="studio-body">
+        <div class="studio-tabs">
+          <span class="tabs-q">Ne üretmek istiyorsun?</span>
+          <span class="on">Görsel</span><span>Video</span><span>Ses</span><span>Metin</span>
+        </div>
+        <div class="studio-input">
+          <span class="typed" id="typed"></span><span class="caret" id="caret"></span>
+          <button class="send" aria-hidden="true" tabindex="-1">➤</button>
+        </div>
+        <div class="studio-chips" id="chips"></div>
+        <div class="studio-out">
+          <div class="gen-state" id="genState">✦ Üretiliyor<span class="gen-dots"><i>.</i><i>.</i><i>.</i></span></div>
+          <video id="outVid" muted playsinline preload="auto"></video>
+          <div class="out-tag" id="outTag">✓ AI ile üretildi · üretim günlüğüne eklendi</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -107,6 +124,7 @@
 <section id="yolculuk">
   <div class="wrap">
     <div class="sec-head center reveal">
+      <span class="kicker">Uygulamalı AI okuryazarlığı</span>
       <h2>Adım adım öğren. <em>Üreterek seviye atla.</em></h2>
       <div class="pf-row">
         <div class="lvl-filter" id="lvlFilter">
